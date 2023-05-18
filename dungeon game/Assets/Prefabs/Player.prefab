@@ -146,7 +146,7 @@ MonoBehaviour:
   movement: {fileID: -3206077400649557350, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
   mouseDown: {fileID: -6526514250554163391, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
   pointerPosition: {fileID: 3757530457984836739, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
-  speed: 3
+  speed: 5
 --- !u!61 &1495248757211259438
 BoxCollider2D:
   m_ObjectHideFlags: 0
