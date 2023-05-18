@@ -5884,14 +5884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5887006511447450657, guid: 121be04205139ecc1bc7d2df5057ccec, type: 3}
-      propertyPath: m_Mass
-      value: 0.0001
-      objectReference: {fileID: 0}
-    - target: {fileID: -5887006511447450657, guid: 121be04205139ecc1bc7d2df5057ccec, type: 3}
-      propertyPath: m_Simulated
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1125996594738888868, guid: 121be04205139ecc1bc7d2df5057ccec, type: 3}
       propertyPath: m_Name
       value: Warrior-Red
@@ -5940,8 +5932,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -5887006511447450657, guid: 121be04205139ecc1bc7d2df5057ccec, type: 3}
+    - target: {fileID: 4302488191445564700, guid: 121be04205139ecc1bc7d2df5057ccec, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121be04205139ecc1bc7d2df5057ccec, type: 3}
 --- !u!1001 &1393578898
 PrefabInstance:
@@ -6016,3 +6011,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6efe37d61c226bc589f1959928687d0c, type: 3}
+--- !u!1 &2089685485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1125996594738888868, guid: 121be04205139ecc1bc7d2df5057ccec, type: 3}
+  m_PrefabInstance: {fileID: 1270905473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2089685492
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089685485}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.875, y: 0.9375}
+    newSize: {x: 0.875, y: 0.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.875, y: 0.9375}
+  m_EdgeRadius: 0
