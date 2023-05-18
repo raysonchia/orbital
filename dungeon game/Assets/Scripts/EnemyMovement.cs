@@ -35,8 +35,8 @@ public class EnemyMovement : MonoBehaviour
         calcuateNewMovementVector();
 
         //move enemy: 
-        transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime), 
-            transform.position.y + (movementPerSecond.y * Time.deltaTime));
+        transform.position = new Vector3(transform.position.x + (movementPerSecond.x * Time.deltaTime), 
+            transform.position.y + (movementPerSecond.y * Time.deltaTime), 0);
     
     }
 }
