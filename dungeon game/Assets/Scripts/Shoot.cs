@@ -16,7 +16,8 @@ public class Shoot : MonoBehaviour
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
+            // GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
+            GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, transform.rotation);
 
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (mousePos - (Vector2)transform.position).normalized;

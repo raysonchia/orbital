@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //private float timeBetweenBullets;
     private float damage;
     public float maxDistance = 20;
 
@@ -46,7 +45,7 @@ public class Bullet : MonoBehaviour
     private void DisableObject()
     {
         rb.velocity = Vector2.zero;
-        gameObject.SetActive(false);
+        ObjectPool.ReturnObjectToPool(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
