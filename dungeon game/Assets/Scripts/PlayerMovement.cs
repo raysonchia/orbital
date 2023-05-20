@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 pointerInput, movementInput, rotateInput;
     private WeaponParent weaponParent;
-    private Shoot shooting;
+    private Shoot shoot;
     Animate animate;
 
     [SerializeField]
@@ -20,17 +20,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        mouseDown.action.started += PerformAttack;
+        mouseDown.action.performed += PerformAttack;
     }
 
     private void OnDisable()
     {
-        mouseDown.action.started -= PerformAttack;
+        mouseDown.action.performed -= PerformAttack;
     }
 
     private void PerformAttack(InputAction.CallbackContext obj)
     {
-        shooting.shootAction();
+        if (obj.ReadValue<float>() == 1f)
+        {
+            InvokeRepeating("holdShoot", 0f, 0.01f);
+        }
+        else
+        {
+            CancelInvoke("holdShoot");
+        }
+    }
+
+    private void holdShoot()
+    {
+        shoot.shootAction();
     }
 
     // Start is called before the first frame update
@@ -39,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animate = GetComponentInParent<Animate>();
         weaponParent = GetComponentInChildren<WeaponParent>();
-        shooting = GetComponentInChildren<Shoot>();
+        shoot = GetComponentInChildren<Shoot>();
     }
 
     // Update is called once per frames
@@ -59,8 +71,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animate.moving = true; // walking animation
         }
-
-        //if (shoot.action.inProgress)
     }
 
     private void FixedUpdate()
