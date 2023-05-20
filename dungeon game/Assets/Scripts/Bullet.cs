@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
 
+
+        // replace with scriptable objects later
         GameObject playerWeapon = GameObject.Find("Weapon");
         Sprite gunSprite = playerWeapon.GetComponent<SpriteRenderer>().sprite;
 
