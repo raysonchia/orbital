@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlugMovement : MonoBehaviour
+public class SimpleEnemyMovement : MonoBehaviour
 {
     Transform player;
     public float moveSpeed;
+    public EnemyScriptableObjects enemyData;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
+        moveSpeed = enemyData.MoveSpeed;
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class SlugMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -41,4 +44,5 @@ public class SlugMovement : MonoBehaviour
     {
         Debug.Log("attacked");
     }
+
 }

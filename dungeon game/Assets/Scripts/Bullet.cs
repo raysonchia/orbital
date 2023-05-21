@@ -10,29 +10,14 @@ public class Bullet : MonoBehaviour
     private Vector2 startPosition;
     private float travelledDistance;
     private Rigidbody2D rb;
+    public WeaponScriptableObject weaponData;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
-
-
-        // replace with scriptable objects later
-        GameObject playerWeapon = GameObject.Find("Weapon");
-        Sprite gunSprite = playerWeapon.GetComponent<SpriteRenderer>().sprite;
-
-        switch (gunSprite.name)
-        {
-            case "Base gun":
-                damage = 5;
-                break;
-            case "Another gun":
-                damage = 10;
-                break;
-            default:
-                damage = 2;
-                break;
-        }
+        damage = weaponData.Damage;
+        
     }
 
     private void Update()

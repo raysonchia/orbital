@@ -7,10 +7,16 @@ using UnityEngine.InputSystem;
 public class Shoot : MonoBehaviour
 {
     public GameObject projectile;
-    public float speed = 8;
-    private float fireRate = 0.17f;
+    public WeaponScriptableObject weaponData;
     private float nextFire;
+    private float fireRate;
+    private float speed;
 
+    private void Start()
+    {
+        fireRate = weaponData.FireRate;
+        speed = weaponData.Speed;
+    }
     public void shootAction()
     {
         if (Time.time > nextFire)

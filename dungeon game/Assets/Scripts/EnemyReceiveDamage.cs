@@ -6,11 +6,13 @@ public class EnemyReceiveDamage : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+    public EnemyScriptableObjects enemyData;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+        health = enemyData.MaxHealth;
+        maxHealth = health;
     }
 
     public void DealDamage(float damage)
@@ -33,5 +35,11 @@ public class EnemyReceiveDamage : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
