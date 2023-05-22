@@ -55,7 +55,7 @@ public class SimpleEnemyMovement : MonoBehaviour
     {
         foreach(GameObject e in otherEnemies)
         {
-            if (e != gameObject)
+            if (e != gameObject && e != null)
             {
                 float distance = Vector3.Distance(e.transform.position, transform.position);
                 if (distance <= spaceBetween)
