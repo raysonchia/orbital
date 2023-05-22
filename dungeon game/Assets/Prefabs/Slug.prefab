@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3653270083139733504}
   m_Layer: 0
   m_Name: Slug
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,3 +164,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   enemyData: {fileID: 11400000, guid: 1ee164690c7a44accb75aefbe0ce1f2f, type: 2}
+  spaceBetween: 0.75
