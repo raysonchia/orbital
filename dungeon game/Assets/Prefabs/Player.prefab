@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 1495248757211259426}
   - component: {fileID: 1495248757211259425}
   - component: {fileID: 1495248757211259424}
+  - component: {fileID: 7445058941275415701}
   - component: {fileID: 1495248757211259439}
   - component: {fileID: 1495248757211259438}
   m_Layer: 0
-  m_Name: knight_m_idle_anim_f0
-  m_TagString: Untagged
+  m_Name: Knight
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +132,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7445058941275415701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495248757211259428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ff0fd8fab454124a0acdb846a4c8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 0
+  OnHitWithReference:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathWithReference:
+    m_PersistentCalls:
+      m_Calls: []
+  isDead: 0
 --- !u!114 &1495248757211259439
 MonoBehaviour:
   m_ObjectHideFlags: 0
