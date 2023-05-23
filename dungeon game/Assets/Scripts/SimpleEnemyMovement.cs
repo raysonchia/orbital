@@ -4,54 +4,60 @@ using UnityEngine;
 
 public class SimpleEnemyMovement : MonoBehaviour
 {
-    Transform player;
+    protected Transform player;
     public float moveSpeed;
     public EnemyScriptableObjects enemyData;
     public float spaceBetween = 0.75f;
     private GameObject[] otherEnemies;
 
+    private float collideDelay = 1.25f;
+    private bool collideBlocked;
+
     // Start is called before the first frame update
     void Start()
+    {
+        InitialiseEnemy();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Move();
+        Separate();
+        //StopAtPlayer();
+
+        Flip();
+    }
+
+    protected void InitialiseEnemy()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
         moveSpeed = enemyData.MoveSpeed;
         otherEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-
-        Separate();
-        //StopAtPlayer();
-
-        // flip slug
-        if (player.transform.position.x > transform.position.x)
-        {
-            transform.localScale = Vector3.one;
-        }
-        else if (player.transform.position.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 7)
+        if (collision.gameObject.tag == "Player" && !collideBlocked)
         {
+            collideBlocked = true;
             Attack();
+            StartCoroutine(CollideCooldown());
         }
     }
 
-    private void Attack()
+    private IEnumerator CollideCooldown()
     {
-        Debug.Log("attacked");
+        yield return new WaitForSeconds(collideDelay);
+        collideBlocked = false;
     }
 
-    private void Separate()
+    protected virtual void Attack()
+    {
+        Debug.Log(gameObject.name + " collision");
+    }
+
+    protected void Separate()
     {
         foreach(GameObject e in otherEnemies)
         {
@@ -64,6 +70,23 @@ public class SimpleEnemyMovement : MonoBehaviour
                     transform.Translate(direction * Time.deltaTime);
                 }
             }
+        }
+    }
+
+    protected void Move()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+    }
+
+    protected void Flip()
+    {
+        if (player.transform.position.x > transform.position.x)
+        {
+            transform.localScale = Vector3.one;
+        }
+        else if (player.transform.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
