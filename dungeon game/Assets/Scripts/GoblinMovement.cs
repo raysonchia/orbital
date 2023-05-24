@@ -5,6 +5,7 @@ using UnityEngine;
 public class GoblinMovement : SimpleEnemyMovement
 {
     public Animator animator;
+    private Animator moveAnimator;
     private float attackDelay = 1f;
     private bool attackBlocked;
 
@@ -12,6 +13,7 @@ public class GoblinMovement : SimpleEnemyMovement
     void Start()
     {
         InitialiseEnemy();
+        moveAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class GoblinMovement : SimpleEnemyMovement
         Flip();
         Move();
 
-        if (Vector3.Distance(player.position, transform.position) <= 1.5f)
+        if (Vector3.Distance(player.position, transform.position) <= 1.5f && PlayerHealth.currentHealth > 0)
         {
             if (attackBlocked)
             {
@@ -30,6 +32,9 @@ public class GoblinMovement : SimpleEnemyMovement
 
             Swing();
             attackBlocked = true;
+        } else if (PlayerHealth.currentHealth <= 0)
+        {
+            moveAnimator.SetTrigger("Idle");
         }
     }
 

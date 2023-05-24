@@ -19,7 +19,8 @@ public class CameraMotor : MonoBehaviour
             if (transform.position.x < lookAt.position.x)
             {
                 delta.x = deltaX - boundX;
-            } else
+            }
+            else
             {
                 delta.x = deltaX + boundX;
             }

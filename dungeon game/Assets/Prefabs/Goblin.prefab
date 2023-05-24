@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 3967962737321650401}
   - component: {fileID: 3967962737321650400}
   - component: {fileID: 3967962737321650396}
-  - component: {fileID: 3967962737321650403}
   - component: {fileID: 3967962737321650397}
   - component: {fileID: 3967962737321650398}
   m_Layer: 8
@@ -264,21 +263,6 @@ MonoBehaviour:
   health: 0
   maxHealth: 0
   enemyData: {fileID: 11400000, guid: 81eace5e0c78e4c60b2ad40c5bcd42ce, type: 2}
---- !u!114 &3967962737321650403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3967962737321650407}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25494bd223a0049e292726ce867794c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
-  enemyData: {fileID: 11400000, guid: 81eace5e0c78e4c60b2ad40c5bcd42ce, type: 2}
-  spaceBetween: 0.75
 --- !u!61 &3967962737321650397
 BoxCollider2D:
   m_ObjectHideFlags: 0

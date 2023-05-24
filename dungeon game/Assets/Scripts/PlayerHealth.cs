@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField]
-    private int currentHealth, maxHealth;
+    public static int currentHealth, maxHealth;
+    //private float invulTime = 1.25f;
+    //private bool isInvul;
+    private Animator animator;
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
 
     [SerializeField]
@@ -31,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         currentHealth -= 1;
+        Debug.Log(currentHealth + " health left");
 
         if(currentHealth > 0)
         {
@@ -39,7 +43,9 @@ public class PlayerHealth : MonoBehaviour
         {
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
-            gameObject.SetActive(false);
+            animator.SetTrigger("isDead") ;
+            Debug.Log("dead");
+            StartCoroutine(GameOver());
         }
         
     }
@@ -48,11 +54,13 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         InitialiseHealth(6);
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator GameOver()
     {
-        
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
+        yield return new WaitForSeconds(2);
+        //SceneManager.LoadScene("") implement death scene later
     }
 }

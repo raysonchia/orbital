@@ -22,6 +22,7 @@ public class SimpleEnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Move();
         Separate();
         //StopAtPlayer();
@@ -41,6 +42,11 @@ public class SimpleEnemyMovement : MonoBehaviour
         if (collision.gameObject.tag == "Player" && !collideBlocked)
         {
             collideBlocked = true;
+            PlayerHealth health;
+            if (health = collision.gameObject.GetComponent<PlayerHealth>())
+            {
+                health.GetHit(transform.gameObject);
+            }
             Attack();
             StartCoroutine(CollideCooldown());
         }
@@ -75,7 +81,10 @@ public class SimpleEnemyMovement : MonoBehaviour
 
     protected void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        if (PlayerHealth.currentHealth > 0)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        }
     }
 
     protected void Flip()
