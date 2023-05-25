@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
@@ -14,6 +15,9 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField]
     private bool isDead = false;
+    [SerializeField]
+    private Image[] hearts;
+    public Sprite fullHeart, halfHeart, emptyHeart;
 
     public void InitialiseHealth(int healthValue)
     {
@@ -34,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         currentHealth -= 1;
+        UpdateHealthUI();
         Debug.Log(currentHealth + " health left");
 
         if(currentHealth > 0)
@@ -43,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
-            animator.SetTrigger("isDead") ;
+            animator.SetTrigger("isDead");
             Debug.Log("dead");
             StartCoroutine(GameOver());
         }
@@ -54,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         InitialiseHealth(6);
+        UpdateHealthUI();
         animator = GetComponent<Animator>();
     }
 
@@ -62,5 +68,36 @@ public class PlayerHealth : MonoBehaviour
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(2);
         //SceneManager.LoadScene("") implement death scene later
+    }
+
+    public void UpdateHealthUI()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            int heartStatusRemainder = (int) Mathf.Clamp(currentHealth - (i * 2), 0, 2);
+            hearts[i].sprite = SetHeartImage((HeartStatus) heartStatusRemainder);
+        }
+    }
+
+    private enum HeartStatus
+    {
+        Empty = 0,
+        Half = 1,
+        Full = 2
+    }
+
+    private Sprite SetHeartImage(HeartStatus status)
+    {
+        switch (status)
+        {
+            case HeartStatus.Empty:
+                return emptyHeart;
+            case HeartStatus.Half:
+                return halfHeart;
+            case HeartStatus.Full:
+                return fullHeart;
+            default:
+                return emptyHeart;
+        }
     }
 }
