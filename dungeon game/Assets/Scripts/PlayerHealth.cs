@@ -65,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator GameOver()
     {
-        gameObject.GetComponent<PlayerMovement>().enabled = false;
+        //gameObject.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(2);
         //SceneManager.LoadScene("") implement death scene later
     }

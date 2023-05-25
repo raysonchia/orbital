@@ -3514,9 +3514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb48729263ab4a5bb1b9836c7066f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAt: {fileID: 873068996}
-  boundX: 0.15
-  boundY: 0.15
+  playerTransform: {fileID: 873068996}
+  mainCamera: {fileID: 1369888092}
+  cameraTargetDivider: 5
 --- !u!1001 &1617693525
 PrefabInstance:
   m_ObjectHideFlags: 0

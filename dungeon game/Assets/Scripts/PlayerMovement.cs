@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void PerformAttack(InputAction.CallbackContext obj)
     {
-        if (obj.ReadValue<float>() == 1f)
+        if (obj.ReadValue<float>() == 1f && PlayerHealth.currentHealth > 0)
         {
             InvokeRepeating("holdShoot", 0f, 0.01f);
         }
@@ -70,6 +70,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animate.moving = true; // walking animation
+        }
+
+        if (PlayerHealth.currentHealth <= 0)
+        {
+            CancelInvoke("holdShoot");
+            movementInput = Vector3.zero;
+            weaponParent.PointerPosition = transform.position;
+            pointerInput = Vector3.zero;
         }
     }
 
