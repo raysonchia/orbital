@@ -102,7 +102,7 @@ public class SimpleEnemyMovement : MonoBehaviour
         if (PlayerHealth.currentHealth > 0)
         {
             Vector2 direction = player.transform.position - transform.position;
-            
+            direction.Normalize();
             bool success = TryMove(direction);
             if (!success) {
                 success = TryMove(new Vector2(direction.x, 0));
