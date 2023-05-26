@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void PerformAttack(InputAction.CallbackContext obj)
     {
-        if (obj.ReadValue<float>() == 1f && PlayerHealth.currentHealth > 0)
+        if (obj.ReadValue<float>() == 1f)
         {
             InvokeRepeating("holdShoot", 0f, 0.01f);
         }
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animate = GetComponentInParent<Animate>();
@@ -60,29 +60,20 @@ public class PlayerMovement : MonoBehaviour
         pointerInput = GetPointerInput();
         rotateInput = GetPointerInputRotate();
         weaponParent.PointerPosition = rotateInput;
-        movementInput = movement.action.ReadValue<Vector2>();
-
-        // not moving
-        if (movementInput.x == 0 && movementInput.y == 0)
-        {
-            animate.moving = false; // idle animation
-        }
-        else
-        {
-            animate.moving = true; // walking animation
-        }
 
         if (PlayerHealth.currentHealth <= 0)
         {
-            CancelInvoke("holdShoot");
             movementInput = Vector3.zero;
             weaponParent.PointerPosition = transform.position;
             pointerInput = Vector3.zero;
+            CancelInvoke("holdShoot");
+            //gameObject.GetComponent<PlayerMovement>().enabled = false;
         }
     }
 
     private void FixedUpdate()
     {
+        movementInput = movement.action.ReadValue<Vector2>();
         movementInput *= speed;
         rb.velocity = movementInput;
 
@@ -98,6 +89,16 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
             // make the weapon not flip with player sprite
             weaponParent.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        // not moving
+        if (movementInput.x == 0 && movementInput.y == 0)
+        {
+            animate.moving = false; // idle animation
+        }
+        else
+        {
+            animate.moving = true; // walking animation
         }
 
     }
