@@ -12,6 +12,12 @@ public class SimpleEnemyMovement : MonoBehaviour
 
     private float collideDelay = 1.2f;
 
+    private float collisionOffset = 0.02f;
+    public Rigidbody2D rb;
+    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    public ContactFilter2D movementFilter;
+    private bool canMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +40,7 @@ public class SimpleEnemyMovement : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>().transform;
         moveSpeed = enemyData.MoveSpeed;
         otherEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -94,8 +101,33 @@ public class SimpleEnemyMovement : MonoBehaviour
     {
         if (PlayerHealth.currentHealth > 0)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            Vector2 direction = player.transform.position - transform.position;
+            bool success = TryMove(direction);
+            if (!success) {
+                success = TryMove(new Vector2(direction.x, 0));
+            }
+
+            if (!success) {
+                success = TryMove(new Vector2(0, direction.y));
+            }
         }
+    }
+
+    private bool TryMove(Vector2 direction) 
+    {
+        if (canMove) {
+            int count = rb.Cast(
+                    direction,
+                    movementFilter,
+                    castCollisions,
+                    moveSpeed * Time.fixedDeltaTime + collisionOffset);
+
+            if (count == 0) {
+                rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                return true;
+            }
+        } 
+        return false;
     }
 
     protected void Flip()

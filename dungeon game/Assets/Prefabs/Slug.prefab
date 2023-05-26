@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3653270083139733505}
   - component: {fileID: 3653270083139733517}
   - component: {fileID: 3653270083139733504}
+  - component: {fileID: 1233594508084270918}
   m_Layer: 8
   m_Name: Slug
   m_TagString: Enemy
@@ -165,3 +166,25 @@ MonoBehaviour:
   moveSpeed: 0
   enemyData: {fileID: 11400000, guid: 1ee164690c7a44accb75aefbe0ce1f2f, type: 2}
   spaceBetween: 0.75
+  rb: {fileID: 0}
+--- !u!50 &1233594508084270918
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653270083139733511}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
