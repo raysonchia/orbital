@@ -8,8 +8,12 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public static int currentHealth, maxHealth;
-    //private float invulTime = 1.25f;
-    //private bool isInvul;
+    private float invulTime = 1.2f;
+    private bool isInvul;
+    private SpriteRenderer playerSprite;
+    private Material defaultMat;
+    [SerializeField]
+    public Material flashMaterial;
     private Animator animator;
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
 
@@ -18,6 +22,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private Image[] hearts;
     public Sprite fullHeart, halfHeart, emptyHeart;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        InitialiseHealth(6);
+        UpdateHealthUI();
+        animator = GetComponent<Animator>();
+        playerSprite = GetComponent<SpriteRenderer>();
+        defaultMat = playerSprite.material;
+    }
 
     public void InitialiseHealth(int healthValue)
     {
@@ -28,11 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void GetHit(GameObject sender)
     {
-        if (isDead)
-        {
-            return;
-        }
-        if (sender.layer == gameObject.layer)
+        if (isDead || isInvul)
         {
             return;
         }
@@ -44,6 +54,8 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth > 0)
         {
             OnHitWithReference?.Invoke(sender);
+            StartCoroutine(BecomeInvulnerable());
+            StartCoroutine(Damaged());
         } else
         {
             OnDeathWithReference?.Invoke(sender);
@@ -55,17 +67,46 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private IEnumerator Damaged()
     {
-        InitialiseHealth(6);
-        UpdateHealthUI();
-        animator = GetComponent<Animator>();
+        yield return StartCoroutine(Flash());
+
+        for (int i = 0; i < 5; i++)
+        {
+            yield return StartCoroutine(Wait());
+            yield return StartCoroutine(Blink());
+        }
+    }
+
+    private IEnumerator BecomeInvulnerable()
+    {
+        isInvul = true;
+        yield return new WaitForSeconds(invulTime);
+        isInvul = false;
+    }
+
+    private IEnumerator Flash()
+    {
+        playerSprite.material = flashMaterial;
+        yield return new WaitForSeconds(0.2f);
+        playerSprite.material = defaultMat;
+    }
+
+    private IEnumerator Blink()
+    {
+        playerSprite.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        playerSprite.enabled = true;
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.1f);
     }
 
     private IEnumerator GameOver()
     {
-        //gameObject.GetComponent<PlayerMovement>().enabled = false;
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(2);
         //SceneManager.LoadScene("") implement death scene later
     }

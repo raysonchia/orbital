@@ -10,8 +10,7 @@ public class SimpleEnemyMovement : MonoBehaviour
     public float spaceBetween = 0.75f;
     private GameObject[] otherEnemies;
 
-    private float collideDelay = 1.25f;
-    private bool collideBlocked;
+    private float collideDelay = 1.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,23 +38,35 @@ public class SimpleEnemyMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !collideBlocked)
+        if (collision.gameObject.tag == "Player")
         {
-            collideBlocked = true;
+            //collideBlocked = true;
             PlayerHealth health;
             if (health = collision.gameObject.GetComponent<PlayerHealth>())
             {
                 health.GetHit(transform.gameObject);
             }
             Attack();
-            StartCoroutine(CollideCooldown());
+            //StartCoroutine(CollideCooldown());
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerProjectile")
+        {
+            //Vector2 difference = (transform.position - collision.transform.position).normalized;
+            //Vector2 force = difference * 2;
+            //Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            //rb.AddForce(force, ForceMode2D.Impulse);
+
+        }
+    }
+
+    // prob dont need
     private IEnumerator CollideCooldown()
     {
         yield return new WaitForSeconds(collideDelay);
-        collideBlocked = false;
     }
 
     protected virtual void Attack()
