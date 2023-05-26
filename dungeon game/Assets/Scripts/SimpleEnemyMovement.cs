@@ -10,9 +10,9 @@ public class SimpleEnemyMovement : MonoBehaviour
     public float spaceBetween = 0.75f;
     private GameObject[] otherEnemies;
 
-    private float collideDelay = 1.2f;
 
-    private float collisionOffset = 0.02f;
+    private float collideDelay = 1.2f;
+    private float collisionOffset = 0.05f;
     public Rigidbody2D rb;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     public ContactFilter2D movementFilter;
@@ -102,6 +102,7 @@ public class SimpleEnemyMovement : MonoBehaviour
         if (PlayerHealth.currentHealth > 0)
         {
             Vector2 direction = player.transform.position - transform.position;
+            
             bool success = TryMove(direction);
             if (!success) {
                 success = TryMove(new Vector2(direction.x, 0));

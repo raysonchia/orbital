@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float speed = 3f;
 
+    private float collideDelay = 1.2f;
+    private float collisionOffset = 0.05f;
+    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    public ContactFilter2D movementFilter;
+    private bool canMove = true;
+
     private void OnEnable()
     {
         mouseDown.action.performed += PerformAttack;
@@ -74,8 +80,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         movementInput = movement.action.ReadValue<Vector2>();
-        movementInput *= speed;
-        rb.velocity = movementInput;
+        Move(movementInput);
 
         // flip the player sprite according to mouse pos
         if (pointerInput.x > 0)
@@ -119,5 +124,34 @@ public class PlayerMovement : MonoBehaviour
         Vector3 charPos = Camera.main.transform.position;
         mousePos.z = Camera.main.nearClipPlane;
         return Camera.main.ScreenToWorldPoint(mousePos - charPos);
+    }
+
+    protected void Move(Vector2 direction)
+    {
+        bool success = TryMove(direction);
+        if (!success) {
+            success = TryMove(new Vector2(direction.x, 0));
+        }
+
+        if (!success) {
+            success = TryMove(new Vector2(0, direction.y));
+        }
+    }
+
+    private bool TryMove(Vector2 direction) 
+    {
+        if (canMove) {
+            int count = rb.Cast(
+                    direction,
+                    movementFilter,
+                    castCollisions,
+                    speed * Time.fixedDeltaTime + collisionOffset);
+
+            if (count == 0) {
+                rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+                return true;
+            }
+        } 
+        return false;
     }
 }

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3653270083139733516}
   - component: {fileID: 3653270083139733507}
   - component: {fileID: 3653270083139733506}
+  - component: {fileID: 1233594508084270918}
   - component: {fileID: 3653270083139733505}
   - component: {fileID: 3653270083139733517}
   - component: {fileID: 3653270083139733504}
-  - component: {fileID: 1233594508084270918}
   m_Layer: 8
   m_Name: Slug
   m_TagString: Enemy
@@ -110,6 +110,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &1233594508084270918
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653270083139733511}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &3653270083139733505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +144,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0018106699, y: -0.11949575}
+  m_Offset: {x: 0.0018105507, y: -0.09188712}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +155,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6342709, y: 0.7610085}
+  m_Size: {x: 0.73734283, y: 0.81622577}
   m_EdgeRadius: 0
 --- !u!114 &3653270083139733517
 MonoBehaviour:
@@ -167,24 +188,17 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 1ee164690c7a44accb75aefbe0ce1f2f, type: 2}
   spaceBetween: 0.75
   rb: {fileID: 0}
---- !u!50 &1233594508084270918
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3653270083139733511}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  movementFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
