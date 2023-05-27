@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             weaponParent.PointerPosition = transform.position;
             pointerInput = Vector3.zero;
             CancelInvoke("holdShoot");
-            //gameObject.GetComponent<PlayerMovement>().enabled = false;
+            gameObject.GetComponent<PlayerMovement>().enabled = false;
         }
     }
 

@@ -11,12 +11,14 @@ public class Bullet : MonoBehaviour
     private float travelledDistance;
     private Rigidbody2D rb;
     public WeaponScriptableObject weaponData;
+    public bool isEnemyProjectile;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
-        damage = weaponData.Damage;
+        if (!isEnemyProjectile)
+            damage = weaponData.Damage;
         
     }
 
@@ -37,13 +39,26 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collide " + collision.name);
-
-        if (collision.GetComponent<EnemyReceiveDamage>() != null)
+        if (isEnemyProjectile)
         {
-            collision.GetComponent<EnemyReceiveDamage>().DealDamage(damage);
-        }
+            Debug.Log("enemy shooting  " + collision.name);
+            if (collision.GetComponent<PlayerHealth>() != null)
+            {
+                collision.GetComponent<PlayerHealth>().GetHit(gameObject);
+            }
 
-        DisableObject();
+            DisableObject();
+
+        } else
+        {
+            Debug.Log("collide " + collision.name);
+
+            if (collision.GetComponent<EnemyReceiveDamage>() != null)
+            {
+                collision.GetComponent<EnemyReceiveDamage>().DealDamage(damage);
+            }
+
+            DisableObject();
+        }
     }
 }

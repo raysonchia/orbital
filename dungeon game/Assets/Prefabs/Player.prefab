@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1495248757211259438}
   - component: {fileID: 7445058941275415701}
   - component: {fileID: 1495248757211259439}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Knight
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -223,9 +223,9 @@ GameObject:
   - component: {fileID: 1495248757918922691}
   - component: {fileID: 1495248757918922703}
   - component: {fileID: 1495248757918922688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,7 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495248758375582123}
   - component: {fileID: 1495248758375582124}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495248758548919384}
   - component: {fileID: 1495248758548919335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 4102708058895010280, guid: dcbab1f2484d74dc5a60392c7d71001a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4102708058895010281, guid: dcbab1f2484d74dc5a60392c7d71001a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -475,6 +479,10 @@ PrefabInstance:
     - target: {fileID: 4102708058895010281, guid: dcbab1f2484d74dc5a60392c7d71001a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102708059026009825, guid: dcbab1f2484d74dc5a60392c7d71001a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcbab1f2484d74dc5a60392c7d71001a, type: 3}

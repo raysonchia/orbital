@@ -6,13 +6,14 @@ public class GoblinMovement : SimpleEnemyMovement
 {
     public Animator animator;
     private Animator moveAnimator;
-    private float attackDelay = 1f;
+    private float attackDelay;
     private bool attackBlocked;
 
     // Start is called before the first frame update
     void Start()
     {
         InitialiseEnemy();
+        attackDelay = enemyData.AttackRate;
         moveAnimator = GetComponent<Animator>();
     }
 
