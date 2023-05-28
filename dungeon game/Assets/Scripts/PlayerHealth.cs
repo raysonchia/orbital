@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     private bool isDead = false;
     [SerializeField]
     private Image[] hearts;
+    [SerializeField]
     public Sprite fullHeart, halfHeart, emptyHeart;
     public GameObject restartScreen;
 
@@ -135,10 +136,13 @@ public class PlayerHealth : MonoBehaviour
         switch (status)
         {
             case HeartStatus.Empty:
+                Debug.Log("empty");
                 return emptyHeart;
             case HeartStatus.Half:
+                Debug.Log("half");
                 return halfHeart;
             case HeartStatus.Full:
+                Debug.Log("full");
                 return fullHeart;
             default:
                 return emptyHeart;
