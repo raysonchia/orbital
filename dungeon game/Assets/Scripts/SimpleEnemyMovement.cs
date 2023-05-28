@@ -12,7 +12,7 @@ public class SimpleEnemyMovement : MonoBehaviour
 
 
     private float collideDelay = 1.2f;
-    private float collisionOffset = 0.05f;
+    private float collisionOffset = 0f;
     public Rigidbody2D rb;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     public ContactFilter2D movementFilter;

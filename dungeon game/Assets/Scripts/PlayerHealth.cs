@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private Image[] hearts;
     public Sprite fullHeart, halfHeart, emptyHeart;
+    public GameObject restartScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -109,6 +110,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //gameObject.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(2);
+        restartScreen.SetActive(true);
         //SceneManager.LoadScene("") implement death scene later
     }
 
