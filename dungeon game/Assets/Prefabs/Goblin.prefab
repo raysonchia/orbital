@@ -326,6 +326,7 @@ MonoBehaviour:
   moveSpeed: 0
   enemyData: {fileID: 11400000, guid: 81eace5e0c78e4c60b2ad40c5bcd42ce, type: 2}
   spaceBetween: 0.75
+  count: 0
   rb: {fileID: 0}
   movementFilter:
     useTriggers: 0
