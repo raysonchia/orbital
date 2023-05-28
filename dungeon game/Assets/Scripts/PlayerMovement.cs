@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Debug.Log("Scene number:" + SceneManager.GetActiveScene().buildIndex);
         rb = GetComponent<Rigidbody2D>();
         animate = GetComponentInParent<Animate>();
         weaponParent = GetComponentInChildren<WeaponParent>();
