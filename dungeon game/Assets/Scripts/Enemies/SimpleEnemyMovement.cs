@@ -8,6 +8,7 @@ public class SimpleEnemyMovement : MonoBehaviour
     public float moveSpeed;
     public EnemyScriptableObjects enemyData;
     public float spaceBetween = 0.75f;
+    public float lineOfSight = 12f;
     private GameObject[] otherEnemies;
 
 
@@ -27,8 +28,10 @@ public class SimpleEnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Move();
+        if (playerInSight())
+        {
+            Move();
+        }
         Separate();
         //StopAtPlayer();
 
@@ -101,16 +104,17 @@ public class SimpleEnemyMovement : MonoBehaviour
     {
         if (PlayerHealth.currentHealth > 0)
         {
-            Vector2 direction = player.transform.position - transform.position;
-            direction.Normalize();
-            bool success = TryMove(direction);
-            if (!success) {
-                success = TryMove(new Vector2(direction.x, 0));
-            }
+            Vector2 direction = (player.transform.position - transform.position).normalized;
+            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
 
-            if (!success) {
-                success = TryMove(new Vector2(0, direction.y));
-            }
+            //bool success = TryMove(direction);
+            //if (!success) {
+            //    success = TryMove(new Vector2(direction.x, 0));
+            //}
+
+            //if (!success) {
+            //    success = TryMove(new Vector2(0, direction.y));
+            //}
         }
     }
 
@@ -141,6 +145,24 @@ public class SimpleEnemyMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+    }
+
+    protected bool playerInSight()
+    {
+        float distance = Vector2.Distance(player.position, transform.position);
+        if (distance <= lineOfSight)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, lineOfSight);
     }
 
     //private void StopAtPlayer()

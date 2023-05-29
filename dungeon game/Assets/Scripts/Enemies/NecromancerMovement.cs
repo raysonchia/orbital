@@ -23,7 +23,6 @@ public class NecromancerMovement : SimpleEnemyMovement
     // Update is called once per frame
     void Update()
     {
-        Separate();
         Flip();
 
         if (Vector3.Distance(player.position, transform.position) <= range && PlayerHealth.currentHealth > 0)
@@ -37,7 +36,7 @@ public class NecromancerMovement : SimpleEnemyMovement
             Shoot();
             StartCoroutine(DelayAttack());
             attackBlocked = true;
-        } else
+        } else if (playerInSight())
         {
             Move();
         }
