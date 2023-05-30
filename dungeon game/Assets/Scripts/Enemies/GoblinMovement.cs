@@ -20,9 +20,16 @@ public class GoblinMovement : SimpleEnemyMovement
     // Update is called once per frame
     void Update()
     {
-        Separate();
         Flip();
-        Move();
+
+        if (playerInSight() && PlayerHealth.currentHealth > 0)
+        {
+            Move();
+            moveAnimator.SetBool("Idle", false);
+        } else
+        {
+            moveAnimator.SetBool("Idle", true);
+        }
 
         if (Vector3.Distance(player.position, transform.position) <= 1.5f && PlayerHealth.currentHealth > 0)
         {
@@ -33,9 +40,6 @@ public class GoblinMovement : SimpleEnemyMovement
 
             Swing();
             attackBlocked = true;
-        } else if (PlayerHealth.currentHealth <= 0)
-        {
-            moveAnimator.SetTrigger("Idle");
         }
     }
 

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Slug
   m_EditorClassIdentifier: 
   moveSpeed: 0.6
-  maxHealth: 25
+  maxHealth: 30
+  attackRate: 0
+  projectileSpeed: 0
