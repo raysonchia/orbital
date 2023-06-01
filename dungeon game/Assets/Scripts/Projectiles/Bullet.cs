@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
 
             if (collision.GetComponent<EnemyReceiveDamage>() != null)
             {
-                collision.GetComponent<EnemyReceiveDamage>().DealDamage(damage);
+                collision.GetComponent<EnemyReceiveDamage>().DealDamage(gameObject, damage);
             }
 
             DisableObject();

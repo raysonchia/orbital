@@ -10,7 +10,7 @@ public class SimpleEnemyMovement : MonoBehaviour
     public EnemyScriptableObjects enemyData;
     public float spaceBetween = 0.75f;
     public float lineOfSight = 12f;
-    public UnityEvent<GameObject> OnCollideWithReference;
+    private string colliderType;
     private GameObject[] otherEnemies;
 
 
@@ -49,15 +49,6 @@ public class SimpleEnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.tag == "PlayerProjectile")
-        //{
-        //    Vector2 difference = (transform.position - collision.transform.position).normalized;
-        //    Vector2 force = difference * 2;
-        //    Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        //    rb.AddForce(force, ForceMode2D.Impulse);
-
-        //}
-
         if (collision.gameObject.tag == "Player")
         {
             //collideBlocked = true;
