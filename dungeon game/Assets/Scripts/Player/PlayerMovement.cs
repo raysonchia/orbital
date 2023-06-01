@@ -135,14 +135,15 @@ public class PlayerMovement : MonoBehaviour
 
     protected void Move(Vector2 direction)
     {
-        bool success = TryMove(direction);
-        if (!success) {
-            success = TryMove(new Vector2(direction.x, 0));
-        }
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        //bool success = TryMove(direction);
+        //if (!success) {
+        //    success = TryMove(new Vector2(direction.x, 0));
+        //}
 
-        if (!success) {
-            success = TryMove(new Vector2(0, direction.y));
-        }
+        //if (!success) {
+        //    success = TryMove(new Vector2(0, direction.y));
+        //}
     }
 
     private bool TryMove(Vector2 direction) 

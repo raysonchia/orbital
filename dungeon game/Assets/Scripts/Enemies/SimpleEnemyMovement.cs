@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SimpleEnemyMovement : MonoBehaviour
 {
@@ -9,10 +10,11 @@ public class SimpleEnemyMovement : MonoBehaviour
     public EnemyScriptableObjects enemyData;
     public float spaceBetween = 0.75f;
     public float lineOfSight = 12f;
+    public UnityEvent<GameObject> OnCollideWithReference;
     private GameObject[] otherEnemies;
 
 
-    private float collideDelay = 1.2f;
+    //private float collideDelay = 1.2f;
     private float collisionOffset = 0f;
     public Rigidbody2D rb;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
@@ -33,7 +35,6 @@ public class SimpleEnemyMovement : MonoBehaviour
             Move();
         }
         Separate();
-        //StopAtPlayer();
 
         Flip();
     }
@@ -46,37 +47,43 @@ public class SimpleEnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        //if (collision.tag == "PlayerProjectile")
+        //{
+        //    Vector2 difference = (transform.position - collision.transform.position).normalized;
+        //    Vector2 force = difference * 2;
+        //    Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        //    rb.AddForce(force, ForceMode2D.Impulse);
+
+        //}
+
         if (collision.gameObject.tag == "Player")
         {
             //collideBlocked = true;
             PlayerHealth health;
             if (health = collision.gameObject.GetComponent<PlayerHealth>())
             {
-                health.GetHit(transform.gameObject);
+                health.GetHit(transform.gameObject, true);
             }
             Attack();
             //StartCoroutine(CollideCooldown());
         }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "PlayerProjectile")
+        if (collision.gameObject.tag == "Player")
         {
-            //Vector2 difference = (transform.position - collision.transform.position).normalized;
-            //Vector2 force = difference * 2;
-            //Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            //rb.AddForce(force, ForceMode2D.Impulse);
-
+            PlayerHealth health;
+            if (health = collision.gameObject.GetComponent<PlayerHealth>())
+            {
+                health.GetHit(transform.gameObject, true);
+            }
+            Attack();
         }
-    }
 
-    // prob dont need
-    private IEnumerator CollideCooldown()
-    {
-        yield return new WaitForSeconds(collideDelay);
     }
 
     protected virtual void Attack()
@@ -174,4 +181,9 @@ public class SimpleEnemyMovement : MonoBehaviour
     //    }
     //}
 
+    // prob dont need
+    //private IEnumerator CollideCooldown()
+    //{
+    //    yield return new WaitForSeconds(collideDelay);
+    //}
 }

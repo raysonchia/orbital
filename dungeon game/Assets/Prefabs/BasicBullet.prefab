@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 20
   weaponData: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
+  isEnemyProjectile: 0

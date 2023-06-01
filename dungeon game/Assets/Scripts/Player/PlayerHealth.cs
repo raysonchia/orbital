@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
         isDead = false;
     }
 
-    public void GetHit(GameObject sender)
+    public void GetHit(GameObject sender, bool isBodyCollision = false)
     {
         if (isDead || isInvul)
         {
@@ -55,7 +55,10 @@ public class PlayerHealth : MonoBehaviour
 
         if(currentHealth > 0)
         {
-            OnHitWithReference?.Invoke(sender);
+            if (isBodyCollision)
+            {
+                OnHitWithReference?.Invoke(sender);
+            }
             StartCoroutine(BecomeInvulnerable());
             StartCoroutine(Damaged());
         } else
