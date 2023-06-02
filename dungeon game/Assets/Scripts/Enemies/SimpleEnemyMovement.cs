@@ -10,16 +10,9 @@ public class SimpleEnemyMovement : MonoBehaviour
     public EnemyScriptableObjects enemyData;
     public float spaceBetween = 0.75f;
     public float lineOfSight = 12f;
-    private string colliderType;
     private GameObject[] otherEnemies;
-
-
-    //private float collideDelay = 1.2f;
-    private float collisionOffset = 0f;
-    public Rigidbody2D rb;
-    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-    public ContactFilter2D movementFilter;
-    private bool canMove = true;
+    protected Vector2 movementContext;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +86,7 @@ public class SimpleEnemyMovement : MonoBehaviour
                 {
                     Vector3 direction = transform.position - e.transform.position;
                     transform.Translate(direction * Time.deltaTime);
+                    Debug.Log("separate");
                 }
             }
         }
@@ -103,7 +97,14 @@ public class SimpleEnemyMovement : MonoBehaviour
         if (PlayerHealth.currentHealth > 0)
         {
             Vector2 direction = (player.transform.position - transform.position).normalized;
-            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+
+            if (movementContext == Vector2.zero && playerInSight())
+            {
+                rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+            } else
+            {
+                rb.MovePosition(rb.position + movementContext * moveSpeed * Time.fixedDeltaTime);
+            }
 
             //bool success = TryMove(direction);
             //if (!success) {
@@ -116,21 +117,9 @@ public class SimpleEnemyMovement : MonoBehaviour
         }
     }
 
-    private bool TryMove(Vector2 direction) 
+    public void GetMovementContext(Vector2 movementInput)
     {
-        if (canMove) {
-            int count = rb.Cast(
-                    direction,
-                    movementFilter,
-                    castCollisions,
-                    moveSpeed * Time.fixedDeltaTime + collisionOffset);
-
-            if (count == 0) {
-                rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-                return true;
-            }
-        } 
-        return false;
+        movementContext = movementInput;
     }
 
     protected void Flip()
