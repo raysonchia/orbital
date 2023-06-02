@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     public Material flashMaterial;
     private Animator animator;
-    public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
+    public UnityEvent<GameObject> OnHitWithReference, OnDamagedWithReference, OnDeathWithReference;
 
     [SerializeField]
     private bool isDead = false;
@@ -60,7 +60,8 @@ public class PlayerHealth : MonoBehaviour
                 OnHitWithReference?.Invoke(sender);
             }
             StartCoroutine(BecomeInvulnerable());
-            StartCoroutine(Damaged());
+            OnDamagedWithReference?.Invoke(gameObject);
+            //StartCoroutine(Damaged());
         } else
         {
             OnDeathWithReference?.Invoke(sender);
@@ -73,41 +74,11 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    private IEnumerator Damaged()
-    {
-        yield return StartCoroutine(Flash());
-
-        for (int i = 0; i < 5; i++)
-        {
-            yield return StartCoroutine(Wait());
-            yield return StartCoroutine(Blink());
-        }
-    }
-
     private IEnumerator BecomeInvulnerable()
     {
         isInvul = true;
         yield return new WaitForSeconds(invulTime);
         isInvul = false;
-    }
-
-    private IEnumerator Flash()
-    {
-        playerSprite.material = flashMaterial;
-        yield return new WaitForSeconds(0.2f);
-        playerSprite.material = defaultMat;
-    }
-
-    private IEnumerator Blink()
-    {
-        playerSprite.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        playerSprite.enabled = true;
-    }
-
-    private IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(0.1f);
     }
 
     private IEnumerator GameOver()

@@ -24,7 +24,6 @@ public class TargetDetector : Detector
 
         if (playerCollider != null)
         {
-            Debug.Log("player found");
             // check if you see the player
             Vector2 direction =
                 (playerCollider.transform.position - transform.position).normalized;
@@ -42,9 +41,6 @@ public class TargetDetector : Detector
                 colliders = null;
             }
             aiData.targets = colliders;
-        } else
-        {
-            Debug.Log("player not found");
         }
     }
 
