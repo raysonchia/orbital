@@ -20,6 +20,7 @@ public class GoblinMovement : SimpleEnemyMovement
     // Update is called once per frame
     void Update()
     {
+        DisableOnDeath();
         Flip();
 
         if (playerInSight() && PlayerHealth.currentHealth > 0)

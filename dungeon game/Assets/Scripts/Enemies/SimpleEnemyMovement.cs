@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public class SimpleEnemyMovement : MonoBehaviour
 {
     protected Transform player;
-    public float moveSpeed;
+    protected float moveSpeed;
+    protected float health;
     public EnemyScriptableObjects enemyData;
     public float spaceBetween = 0.75f;
     public float lineOfSight = 12f;
@@ -23,11 +24,11 @@ public class SimpleEnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DisableOnDeath();
         if (playerInSight())
         {
             Move();
         }
-        Separate();
 
         Flip();
     }
@@ -143,6 +144,20 @@ public class SimpleEnemyMovement : MonoBehaviour
         } else
         {
             return false;
+        }
+    }
+
+    protected void DisableOnDeath()
+    {
+        health = GetComponent<EnemyReceiveDamage>().health;
+        if (health <= 0)
+        {
+            // disable movement
+            this.enabled = false;
+            // disable collision
+            gameObject.layer = LayerMask.NameToLayer("Corpse");
+            // push sprite to back
+            GetComponent<SpriteRenderer>().sortingLayerName = "Corpse";
         }
     }
 

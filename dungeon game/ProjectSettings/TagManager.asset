@@ -21,7 +21,7 @@ TagManager:
   - Wall
   - EnemyWallCollider
   - Obstacle
-  - 
+  - Corpse
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 2165980247
+    locked: 0
+  - name: Corpse
+    uniqueID: 750935707
     locked: 0
   - name: Default
     uniqueID: 0

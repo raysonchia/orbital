@@ -23,6 +23,7 @@ public class NecromancerMovement : SimpleEnemyMovement
     // Update is called once per frame
     void Update()
     {
+        DisableOnDeath();
         Flip();
 
         if (Vector3.Distance(player.position, transform.position) <= range && PlayerHealth.currentHealth > 0)

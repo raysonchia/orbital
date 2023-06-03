@@ -9,19 +9,23 @@ public class EnemyReceiveDamage : MonoBehaviour
     public float maxHealth;
     public EnemyScriptableObjects enemyData;
     public UnityEvent<GameObject> OnHitWithReference;
+    private Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         health = enemyData.MaxHealth;
         maxHealth = health;
+        animator = GetComponent<Animator>();
     }
 
     public void DealDamage(GameObject projectile, float damage)
     {
-        OnHitWithReference?.Invoke(projectile);
-        health -= damage;
-        CheckDeath();
+        if (health > 0)
+        {
+            OnHitWithReference?.Invoke(projectile);
+            health -= damage;
+            CheckDeath();
+        }
     }
 
     private void CheckOverHeal()
@@ -36,8 +40,16 @@ public class EnemyReceiveDamage : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            animator.SetTrigger("isDead");
+            StartCoroutine(WaitAndDestroy());
+            
         }
+    }
+
+    private IEnumerator WaitAndDestroy()
+    {
+        yield return new WaitForSeconds(4.0f);
+        Destroy(gameObject);
     }
 
 }
