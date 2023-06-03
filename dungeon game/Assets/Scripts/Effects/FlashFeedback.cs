@@ -6,7 +6,7 @@ public class FlashFeedback : MonoBehaviour
 {
 
     [SerializeField]
-    private float enemyFlashTime = 0.03f, flashCooldown = 0.06f;
+    private float enemyFlashTime = 0.04f, flashCooldown = 0.06f;
     //private bool flashBreak; // cooldown unused for now
     [SerializeField]
     private Material flashMaterial;

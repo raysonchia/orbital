@@ -550,7 +550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124d637508229428383ac17dad29f6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
   enemyData: {fileID: 11400000, guid: 81eace5e0c78e4c60b2ad40c5bcd42ce, type: 2}
   spaceBetween: 0.75
   lineOfSight: 10
@@ -665,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e4f229c3fb445caa4ade539fd2ffd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyFlashTime: 0.03
+  enemyFlashTime: 0.04
   flashCooldown: 0.06
   flashMaterial: {fileID: 2100000, guid: 1f73b87ae67f24ec39b453f7708d948d, type: 2}
 --- !u!1 &3967962738492230130
