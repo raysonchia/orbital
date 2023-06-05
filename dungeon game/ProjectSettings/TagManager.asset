@@ -22,7 +22,7 @@ TagManager:
   - EnemyWallCollider
   - Obstacle
   - Corpse
-  - 
+  - Door
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 170573929
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3542986139
     locked: 0
   - name: Wall
     uniqueID: 2165980247
