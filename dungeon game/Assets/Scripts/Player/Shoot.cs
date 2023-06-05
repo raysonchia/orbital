@@ -25,9 +25,7 @@ public class Shoot : MonoBehaviour
             // GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
             GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, transform.rotation);
 
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * speed;
+            bullet.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.right * speed, ForceMode2D.Impulse);
         }
     }
 }
