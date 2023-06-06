@@ -56,6 +56,18 @@ public class CorridorFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         for (int i = 0; i < corridorCount; i++)
         {
             var corridor = ProceduralGenerationAlgorithms.RandomWalkCorridor(currentPosition, corridorLength);
+            foreach (var position in corridor)
+            {
+                foreach (var direction in Direction2D.cardinalDirectionsList.GetRange(0, 2))
+                {
+                    var neighbourPosition = position + direction;
+                    if (corridor.Contains(neighbourPosition) == false)
+                    {
+                        floorPositions.Add(neighbourPosition);
+                    }
+                }
+            }
+
             currentPosition = corridor[corridor.Count - 1];
             potentialRoomPositions.Add(currentPosition);
             floorPositions.UnionWith(corridor);
