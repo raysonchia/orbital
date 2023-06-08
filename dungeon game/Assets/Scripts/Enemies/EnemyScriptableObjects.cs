@@ -20,4 +20,8 @@ public class EnemyScriptableObjects : ScriptableObject
     [SerializeField]
     float projectileSpeed;
     public float ProjectileSpeed { get => projectileSpeed; private set => projectileSpeed = value; }
+
+    [SerializeField]
+    float range;
+    public float Range { get => range; private set => range = value; }
 }

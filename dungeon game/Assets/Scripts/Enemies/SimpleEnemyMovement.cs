@@ -9,7 +9,7 @@ public class SimpleEnemyMovement : MonoBehaviour
     protected float moveSpeed;
     protected float health;
     public EnemyScriptableObjects enemyData;
-    public float spaceBetween = 0.75f;
+    private float spaceBetween = 0.75f;
     public float lineOfSight = 12f;
     private GameObject[] otherEnemies;
     protected Vector2 movementContext;
