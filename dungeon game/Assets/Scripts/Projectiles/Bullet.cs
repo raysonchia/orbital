@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     private float damage;
     public float maxDistance = 20;
 
-    private Vector2 startPosition;
+    public Vector2 startPosition;
     private float travelledDistance;
     private Rigidbody2D rb;
     public WeaponScriptableObject weaponData;

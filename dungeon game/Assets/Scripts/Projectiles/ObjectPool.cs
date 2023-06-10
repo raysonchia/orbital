@@ -27,12 +27,15 @@ public class ObjectPool : MonoBehaviour
         //    if (obj != null)
         //    {
         //        spawnableObj = obj;
+        //        Debug.Log(spawnableObj + "");
         //        break;
         //    }
         //}
 
+
         if (spawnableObj == null)
         {
+            
             // if there are no inactive objects, create one
             spawnableObj = Instantiate(objectToSpawn, spawnPosition, spawnRotation);
         } else
@@ -40,12 +43,12 @@ public class ObjectPool : MonoBehaviour
             // if there is an inactive object, reactive it
             spawnableObj.transform.position = spawnPosition;
             spawnableObj.transform.rotation = spawnRotation;
+            spawnableObj.GetComponent<Bullet>().startPosition = spawnPosition;
             pool.InactiveObjects.Remove(spawnableObj);
             spawnableObj.SetActive(true);
         }
 
         return spawnableObj;
-
     }
 
     public static void ReturnObjectToPool(GameObject obj)

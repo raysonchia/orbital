@@ -128,9 +128,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 GetPointerInputRotate()
     {
         Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();
-        Vector3 charPos = Camera.main.transform.position;
         mousePos.z = Camera.main.nearClipPlane;
-        return Camera.main.ScreenToWorldPoint(mousePos - charPos);
+        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 
     protected void Move(Vector2 direction)
