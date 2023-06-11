@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         pointerInput = GetPointerInput();
         rotateInput = GetPointerInputRotate();
         weaponParent.PointerPosition = rotateInput;
+        movementInput = movement.action.ReadValue<Vector2>();
 
         if (PlayerHealth.currentHealth <= 0)
         {
@@ -86,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movementInput = movement.action.ReadValue<Vector2>();
         Move(movementInput);
 
         // flip the player sprite according to mouse pos

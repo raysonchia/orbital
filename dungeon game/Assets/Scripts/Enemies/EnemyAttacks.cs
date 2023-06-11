@@ -19,26 +19,36 @@ public class EnemyAttacks : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>().transform;
     }
 
-    public void Wave(float projectileSpeed, int bulletsAmount, WaveTypes type)
+    public void Wave(float projectileSpeed, int bulletsAmount, WaveTypes type, int wavesCount, float timeBetween)
     {
-        GetAngles(type);
+        StartCoroutine(WaveRoutine(projectileSpeed, bulletsAmount, type, wavesCount, timeBetween));
+    }
 
-        float angleStep = (endAngle - startAngle) / bulletsAmount;
-        //Debug.Log("angle step is " + angleStep);
-        float angle = startAngle;
-
-        for (int i = 0; i < bulletsAmount + 1; i++)
+    private IEnumerator WaveRoutine(float projectileSpeed, int bulletsAmount, WaveTypes type, int wavesCount, float timeBetween)
+    {
+        for (int i = 0; i < wavesCount; i++)
         {
-            float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-            float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+            GetAngles(type);
 
-            Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
-            Vector2 bulDir = (bulMoveVector - transform.position).normalized;
+            float angleStep = (endAngle - startAngle) / bulletsAmount;
+            //Debug.Log("angle step is " + angleStep);
+            float angle = startAngle;
 
-            GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = bulDir * projectileSpeed;
+            for (int j = 0; j < bulletsAmount + 1; j++)
+            {
+                float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+                float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
 
-            angle += angleStep;
+                Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
+                Vector2 bulDir = (bulMoveVector - transform.position).normalized;
+
+                GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, Quaternion.identity);
+                bullet.GetComponent<Rigidbody2D>().velocity = bulDir * projectileSpeed;
+
+                angle += angleStep;
+            }
+
+            yield return new WaitForSeconds(timeBetween);
         }
     }
 
