@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NecromancerMovement : SimpleEnemyMovement
+public class WizardMovement : SimpleEnemyMovement
 {
     private float attackDelay;
     private bool attackBlocked;
     public GameObject projectile;
     public float projectileSpeed;
-    public float range;
+    public float range = 6.5f;
+    private EnemyAttacks attacks;
 
     // Start is called before the first frame update
     void Start()
     {
         InitialiseEnemy();
-        attackDelay = enemyData.AttackRate;
         projectileSpeed = enemyData.ProjectileSpeed;
-        range = enemyData.Range;
         attackBlocked = false;
+        attacks = GetComponent<EnemyAttacks>();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class NecromancerMovement : SimpleEnemyMovement
 
     private void FixedUpdate()
     {
-        if (Vector3.Distance(player.position, transform.position) <= 8 && PlayerHealth.currentHealth > 0)
+        if (Vector3.Distance(player.position, transform.position) <= range && PlayerHealth.currentHealth > 0)
         {
             if (attackBlocked)
             {
@@ -37,7 +37,7 @@ public class NecromancerMovement : SimpleEnemyMovement
             }
 
             Shoot();
-            StartCoroutine(DelayAttack());
+            //StartCoroutine(DelayAttack());
             attackBlocked = true;
         }
         else if (playerInSight())
@@ -54,12 +54,20 @@ public class NecromancerMovement : SimpleEnemyMovement
 
     private void Shoot()
     {
-        GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, Quaternion.identity);
-        Vector2 direction = (player.transform.position - transform.position).normalized;
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
-        //attacks.Wave(projectileSpeed, 15, WaveTypes.Circle);
-        ////attacks.DoubleSpiral(4, 2f);
-        //attackDelay = 2f;
+        int random = Random.Range(1, 3);
+
+        if (random == 1)
+        {
+            attackDelay = 7f;
+            StartCoroutine(DelayAttack());
+            attacks.Wave(projectileSpeed, 15, WaveTypes.Circle, 3, 2f);
+        } else
+        {
+            attackDelay = 5f;
+            StartCoroutine(DelayAttack());
+            attacks.RapidFire(projectileSpeed, 10);
+        }
+
     }
 
     private void OnDrawGizmosSelected()
