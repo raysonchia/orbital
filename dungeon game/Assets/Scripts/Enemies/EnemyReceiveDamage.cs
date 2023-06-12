@@ -10,12 +10,20 @@ public class EnemyReceiveDamage : MonoBehaviour
     public EnemyScriptableObjects enemyData;
     public UnityEvent<GameObject> OnHitWithReference;
     private Animator animator;
+    [SerializeField]
+    private bool isBoss = false;
+    [SerializeField]
+    HealthBar bossHealth;
 
     void Awake()
     {
         health = enemyData.MaxHealth;
         maxHealth = health;
         animator = GetComponent<Animator>();
+        if (isBoss)
+        {
+            bossHealth = GetComponentInChildren<HealthBar>();
+        }
     }
 
     public void DealDamage(GameObject projectile, float damage)
@@ -24,6 +32,11 @@ public class EnemyReceiveDamage : MonoBehaviour
         {
             OnHitWithReference?.Invoke(projectile);
             health -= damage;
+
+            if (isBoss)
+            {
+                bossHealth.UpdateHealthBar(health, maxHealth);
+            }
             CheckDeath();
         }
     }

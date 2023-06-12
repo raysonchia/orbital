@@ -10,6 +10,8 @@ public class WizardMovement : SimpleEnemyMovement
     public float projectileSpeed;
     public float range = 6.5f;
     private EnemyAttacks attacks;
+    [SerializeField]
+    private GameObject bossHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class WizardMovement : SimpleEnemyMovement
         projectileSpeed = enemyData.ProjectileSpeed;
         attackBlocked = false;
         attacks = GetComponent<EnemyAttacks>();
+        bossHealth.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class WizardMovement : SimpleEnemyMovement
     {
         if (Vector3.Distance(player.position, transform.position) <= range && PlayerHealth.currentHealth > 0)
         {
+            bossHealth.SetActive(true); // change it to scene/room trigger next time
             if (attackBlocked)
             {
                 return;
@@ -42,6 +46,7 @@ public class WizardMovement : SimpleEnemyMovement
         }
         else if (playerInSight())
         {
+            bossHealth.SetActive(true);
             Move();
         }
     }

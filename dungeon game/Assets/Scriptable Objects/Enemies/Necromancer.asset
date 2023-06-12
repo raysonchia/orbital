@@ -16,3 +16,4 @@ MonoBehaviour:
   maxHealth: 20
   attackRate: 2
   projectileSpeed: 4
+  range: 6.5

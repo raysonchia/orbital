@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  maxHealth: 700
+  maxHealth: 20
   attackRate: 3
   projectileSpeed: 5
   range: 25
