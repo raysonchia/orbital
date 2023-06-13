@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   moveSpeed: 1.2
-  maxHealth: 25
+  maxHealth: 20
   attackRate: 1
   projectileSpeed: 0
+  range: 0
