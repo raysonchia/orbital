@@ -6,10 +6,14 @@ public class WizardMovement : SimpleEnemyMovement
 {
     private float attackDelay;
     private bool attackBlocked;
-    public GameObject projectile;
+    [SerializeField]
+    private GameObject circleProjectile, rapidProjectile;
     public float projectileSpeed;
-    public float range = 6.5f;
+    private float range;
     private EnemyAttacks attacks;
+    private Animator animator;
+    public bool rapidFire;
+
     [SerializeField]
     private GameObject bossHealth;
 
@@ -18,8 +22,11 @@ public class WizardMovement : SimpleEnemyMovement
     {
         InitialiseEnemy();
         projectileSpeed = enemyData.ProjectileSpeed;
+        range = enemyData.Range;
         attackBlocked = false;
+        rapidFire = false;
         attacks = GetComponent<EnemyAttacks>();
+        animator = GetComponent<Animator>();
         bossHealth.SetActive(false);
     }
 
@@ -32,6 +39,18 @@ public class WizardMovement : SimpleEnemyMovement
 
     private void FixedUpdate()
     {
+        // Move when player in sight, or when wizard is using rapid fire
+        if (playerInSight() && !attackBlocked || rapidFire && attackBlocked)
+        {
+            bossHealth.SetActive(true);
+            Debug.Log("moving");
+            Move();
+        }
+
+        // Move till wizard is in range of player, then attack
+        // 1) Circle, wizard stops and shoots a few bursts
+        // 2) Continuous shooting, wizard will move and shoot
+        // Theres a short delay between each attack controlled by attackDelay - Wait
         if (Vector3.Distance(player.position, transform.position) <= range && PlayerHealth.currentHealth > 0)
         {
             bossHealth.SetActive(true); // change it to scene/room trigger next time
@@ -40,14 +59,8 @@ public class WizardMovement : SimpleEnemyMovement
                 return;
             }
 
-            Shoot();
-            //StartCoroutine(DelayAttack());
             attackBlocked = true;
-        }
-        else if (playerInSight())
-        {
-            bossHealth.SetActive(true);
-            Move();
+            StartCoroutine(ShootRoutine());            
         }
     }
 
@@ -55,24 +68,51 @@ public class WizardMovement : SimpleEnemyMovement
     {
         yield return new WaitForSeconds(attackDelay);
         attackBlocked = false;
+        rapidFire = false;
     }
 
-    private void Shoot()
+    private IEnumerator ShootRoutine()
     {
         int random = Random.Range(1, 3);
 
         if (random == 1)
         {
-            attackDelay = 7f;
-            StartCoroutine(DelayAttack());
-            attacks.Wave(projectileSpeed, 15, WaveTypes.Circle, 3, 2f);
+            animator.Play("Circle");
+            yield return CircleRoutine();
+            yield return AttackCompleteRoutine();
         } else
         {
-            attackDelay = 5f;
-            StartCoroutine(DelayAttack());
-            attacks.RapidFire(projectileSpeed, 10);
+            animator.Play("RapidFire");
+            yield return RFRoutine();
+            yield return AttackCompleteRoutine();
         }
 
+    }
+
+    private IEnumerator CircleRoutine()
+    {
+        attackDelay = 7f;
+        StartCoroutine(DelayAttack());
+        attacks.Projectile = circleProjectile;
+        attacks.Wave(projectileSpeed, 16, WaveTypes.Circle, 3, 2f);
+        yield return new WaitForSeconds(5);
+    }
+
+    private IEnumerator RFRoutine()
+    {
+        rapidFire = true;
+        attackDelay = 5f;
+        StartCoroutine(DelayAttack());
+        attacks.Projectile = rapidProjectile;
+        attacks.RapidFire(projectileSpeed, 10);
+        yield return new WaitForSeconds(3);
+    }
+
+    private IEnumerator AttackCompleteRoutine()
+    {
+        animator.Play("WizardWalk+Idle");
+        rapidFire = false;
+        yield return null;
     }
 
     private void OnDrawGizmosSelected()

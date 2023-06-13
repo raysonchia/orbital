@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyAttacks : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject projectile;
+    public GameObject Projectile { private get; set; }
     [SerializeField]
     private int bulletsAmount;
     private Transform player;
@@ -42,7 +41,7 @@ public class EnemyAttacks : MonoBehaviour
                 Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
                 Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 
-                GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, Quaternion.identity);
+                GameObject bullet = ObjectPool.SpawnObject(Projectile, transform.position, Projectile.transform.rotation);
                 bullet.GetComponent<Rigidbody2D>().velocity = bulDir * projectileSpeed;
 
                 angle += angleStep;
@@ -99,7 +98,7 @@ public class EnemyAttacks : MonoBehaviour
         for (int i = 0; i < bulletsAmount; i++)
         {
             Vector2 dir = (player.position - transform.position).normalized;
-            GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, Quaternion.identity);
+            GameObject bullet = ObjectPool.SpawnObject(Projectile, transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = dir * projectileSpeed;
             yield return new WaitForSeconds(delay);
         }
@@ -126,7 +125,7 @@ public class EnemyAttacks : MonoBehaviour
             Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
             Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 
-            GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, Quaternion.identity);
+            GameObject bullet = ObjectPool.SpawnObject(Projectile, transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = bulDir * projectileSpeed;
 
             angle += 10f;
@@ -159,7 +158,7 @@ public class EnemyAttacks : MonoBehaviour
                 Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
                 Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 
-                GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, Quaternion.identity);
+                GameObject bullet = ObjectPool.SpawnObject(Projectile, transform.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody2D>().velocity = bulDir * projectileSpeed;
 
                 angle += 10f;
