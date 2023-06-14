@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
     {
         if (isEnemyProjectile)
         {
-            Debug.Log("enemy shooting  " + collision.name);
+            //Debug.Log("enemy shooting  " + collision.name);
             if (collision.GetComponent<PlayerHealth>() != null)
             {
                 collision.GetComponent<PlayerHealth>().GetHit(gameObject);
@@ -51,7 +51,7 @@ public class Bullet : MonoBehaviour
 
         } else
         {
-            Debug.Log("collide " + collision.name);
+            //Debug.Log("collide " + collision.name);
 
             if (collision.GetComponent<EnemyReceiveDamage>() != null)
             {

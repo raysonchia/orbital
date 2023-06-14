@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 pointerInput, movementInput, rotateInput;
     private WeaponParent weaponParent;
     private Shoot shoot;
-    Animate animate;
+    private Animate animate;
 
     [SerializeField]
     private InputActionReference movement, mouseDown, pointerPosition;
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float speed = 3f;
 
-    private float collideDelay = 1.2f;
+    //private float collideDelay = 1.2f;
     private float collisionOffset = 0.05f;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     public ContactFilter2D movementFilter;

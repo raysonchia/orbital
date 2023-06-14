@@ -9,7 +9,7 @@ public class WizardMovement : SimpleEnemyMovement
     [SerializeField]
     private GameObject circleProjectile, rapidProjectile;
     public float projectileSpeed;
-    private float range;
+    public float range;
     private EnemyAttacks attacks;
     private Animator animator;
     public bool rapidFire;
@@ -37,13 +37,24 @@ public class WizardMovement : SimpleEnemyMovement
         Flip();
     }
 
+    protected override void DisableOnDeath()
+    {
+        health = GetComponent<EnemyReceiveDamage>().health;
+        if (health <= 0)
+        {
+            this.enabled = false;
+            attacks.StopAllCoroutines(); // stop attacks
+            gameObject.layer = LayerMask.NameToLayer("Corpse");
+            GetComponent<SpriteRenderer>().sortingLayerName = "Corpse";
+        }
+    }
+
     private void FixedUpdate()
     {
         // Move when player in sight, or when wizard is using rapid fire
         if (playerInSight() && !attackBlocked || rapidFire && attackBlocked)
         {
             bossHealth.SetActive(true);
-            Debug.Log("moving");
             Move();
         }
 

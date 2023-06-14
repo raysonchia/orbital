@@ -147,7 +147,7 @@ public class SimpleEnemyMovement : MonoBehaviour
         }
     }
 
-    protected void DisableOnDeath()
+    protected virtual void DisableOnDeath()
     {
         health = GetComponent<EnemyReceiveDamage>().health;
         if (health <= 0)

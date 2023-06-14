@@ -12,8 +12,7 @@ public class EnemyReceiveDamage : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private bool isBoss = false;
-    [SerializeField]
-    HealthBar bossHealth;
+    private HealthBar bossHealth;
 
     void Awake()
     {

@@ -41,7 +41,10 @@ public class EnemyAttacks : MonoBehaviour
                 Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
                 Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 
-                GameObject bullet = ObjectPool.SpawnObject(Projectile, transform.position, Projectile.transform.rotation);
+                GameObject bullet = ObjectPool.SpawnObject(
+                    Projectile,
+                    transform.position,
+                    Projectile.transform.rotation);
                 bullet.GetComponent<Rigidbody2D>().velocity = bulDir * projectileSpeed;
 
                 angle += angleStep;
