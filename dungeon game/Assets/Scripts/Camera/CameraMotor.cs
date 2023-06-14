@@ -47,6 +47,11 @@ public class CameraMotor : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [Range(2, 100)] [SerializeField] private float cameraTargetDivider;
 
+    private void Awake()
+    {
+        playerTransform = GameObject.FindObjectOfType<PlayerMovement>().transform;
+    }
+
     private void Update()
     {
         var mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
