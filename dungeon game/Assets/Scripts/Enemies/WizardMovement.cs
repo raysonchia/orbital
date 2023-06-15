@@ -44,6 +44,7 @@ public class WizardMovement : SimpleEnemyMovement
         {
             this.enabled = false;
             attacks.StopAllCoroutines(); // stop attacks
+            StopAllCoroutines();
             gameObject.layer = LayerMask.NameToLayer("Corpse");
             GetComponent<SpriteRenderer>().sortingLayerName = "Corpse";
         }
