@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5362879094120051283}
   - component: {fileID: 6140189062537527049}
-  - component: {fileID: 4195613096632009887}
   - component: {fileID: 2936572421146840808}
   - component: {fileID: 547206852167541611}
   - component: {fileID: 3561090157989575497}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: Heath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4bcad37abbf1a4f15ae6d814eb46538d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fc5db1c030ba4537bb1e44d9dbee349, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,27 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4195613096632009887
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833615133226343576}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7afa511bc61c04e4694ada1c528a1795, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!70 &2936572421146840808
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -122,9 +100,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.375, y: 0.4375}
-  m_Direction: 0
+  m_Offset: {x: 0.00000030297375, y: 0.041527707}
+  m_Size: {x: 0.47567433, y: 0.43037203}
+  m_Direction: 1
 --- !u!50 &547206852167541611
 Rigidbody2D:
   serializedVersion: 4
@@ -158,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d334be2e1e70f41c9ab9d036ed066cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpType: 1
   pickUpDistance: 4
   accelerationRate: 0.2
   animCurve:

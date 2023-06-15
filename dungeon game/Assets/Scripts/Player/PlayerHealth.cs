@@ -29,7 +29,11 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         InitialiseHealth(6);
-        UpdateHealthUI();
+        if (SceneManager.GetActiveScene().name != "MainHub")
+        {
+            UpdateHealthUI();
+        }
+
         animator = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
         defaultMat = playerSprite.material;
@@ -40,6 +44,22 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = healthValue;
         maxHealth = healthValue;
         isDead = false;
+    }
+
+    public void Heal()
+    {
+        if (!isDead)
+        {
+            currentHealth += 1;
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            } else
+            {
+                Debug.Log("healing");
+                UpdateHealthUI();
+            }
+        }
     }
 
     public void GetHit(GameObject sender, bool isBodyCollision = false)
