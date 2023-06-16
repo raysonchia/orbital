@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 6875009125025142269}
   - component: {fileID: 6875009125025142258}
   - component: {fileID: 6875009125025142259}
-  - component: {fileID: 6875009125025142244}
+  - component: {fileID: 4607432304141661149}
   m_Layer: 8
   m_Name: BigZombie
   m_TagString: Enemy
@@ -510,6 +510,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isBoss: 0
 --- !u!114 &6875009125025142258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +564,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6875009125025142244
+--- !u!114 &4607432304141661149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,15 +573,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6875009125025142256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7264cfca7dbb747c3bafb22018c2cea3, type: 3}
+  m_Script: {fileID: 11500000, guid: 942a4e3d04e8241b2b10e95adacfd9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnAnimationEventTriggered:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAttackPerformed:
-    m_PersistentCalls:
-      m_Calls: []
+  dropList:
+  - {fileID: 11400000, guid: 752be0dd3574e4e5d907f712b6e19fe7, type: 2}
+  - {fileID: 11400000, guid: 157ee835e19874250901f18bfd6cec9d, type: 2}
 --- !u!1 &6875009125603497953
 GameObject:
   m_ObjectHideFlags: 0

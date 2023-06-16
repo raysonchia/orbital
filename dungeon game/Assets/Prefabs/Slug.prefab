@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 3874815226244099663}
   - component: {fileID: -6934544178098950143}
   - component: {fileID: 577186269539782445}
+  - component: {fileID: 2793985204850599229}
   m_Layer: 8
   m_Name: Slug
   m_TagString: Enemy
@@ -437,6 +438,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isBoss: 0
 --- !u!114 &3653270083139733504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,7 +452,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 1ee164690c7a44accb75aefbe0ce1f2f, type: 2}
-  spaceBetween: 0.75
   lineOfSight: 10
 --- !u!114 &4503134477834467760
 MonoBehaviour:
@@ -565,6 +566,21 @@ MonoBehaviour:
   enemyFlashTime: 0.04
   flashCooldown: 0.06
   flashMaterial: {fileID: 2100000, guid: 1f73b87ae67f24ec39b453f7708d948d, type: 2}
+--- !u!114 &2793985204850599229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653270083139733511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942a4e3d04e8241b2b10e95adacfd9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropList:
+  - {fileID: 11400000, guid: 752be0dd3574e4e5d907f712b6e19fe7, type: 2}
+  - {fileID: 11400000, guid: 157ee835e19874250901f18bfd6cec9d, type: 2}
 --- !u!1 &5625200123575408189
 GameObject:
   m_ObjectHideFlags: 0

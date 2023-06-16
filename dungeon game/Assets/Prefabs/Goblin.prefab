@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 2560632945710041560}
   - component: {fileID: -2941972271879075766}
   - component: {fileID: 6923764083798648523}
+  - component: {fileID: 6278942420302799868}
   m_Layer: 8
   m_Name: Goblin
   m_TagString: Enemy
@@ -491,6 +492,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isBoss: 0
 --- !u!61 &3967962737321650397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -551,7 +553,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 81eace5e0c78e4c60b2ad40c5bcd42ce, type: 2}
-  spaceBetween: 0.75
   lineOfSight: 10
   animator: {fileID: 3967962736928914290}
 --- !u!114 &2749909454323694235
@@ -667,6 +668,21 @@ MonoBehaviour:
   enemyFlashTime: 0.04
   flashCooldown: 0.06
   flashMaterial: {fileID: 2100000, guid: 1f73b87ae67f24ec39b453f7708d948d, type: 2}
+--- !u!114 &6278942420302799868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967962737321650407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942a4e3d04e8241b2b10e95adacfd9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropList:
+  - {fileID: 11400000, guid: 752be0dd3574e4e5d907f712b6e19fe7, type: 2}
+  - {fileID: 11400000, guid: 157ee835e19874250901f18bfd6cec9d, type: 2}
 --- !u!1 &3967962738492230130
 GameObject:
   m_ObjectHideFlags: 0

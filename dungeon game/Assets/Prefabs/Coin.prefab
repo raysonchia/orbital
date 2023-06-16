@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2936572421146840808}
   - component: {fileID: 547206852167541611}
   - component: {fileID: 3561090157989575497}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d334be2e1e70f41c9ab9d036ed066cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpType: 0
   pickUpDistance: 4
   accelerationRate: 0.2
   animCurve:
