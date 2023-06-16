@@ -33,5 +33,24 @@ public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
         }
         return floorPositions;
     }
+
+    protected void WidenFloors(HashSet<Vector2Int> floorPositions)
+    {
+        HashSet<Vector2Int> widenedFloorPositions = new HashSet<Vector2Int>();
+
+        foreach (var position in floorPositions)
+        {
+            foreach (var direction in Direction2D.cardinalDirectionsList.GetRange(0, 2))
+            {
+                var neighbourPosition = position + direction;
+                if (floorPositions.Contains(neighbourPosition) == false)
+                {
+                    widenedFloorPositions.Add(neighbourPosition);
+                }
+            }
+        }
+
+        floorPositions.UnionWith(widenedFloorPositions);
+    }
 }
 
