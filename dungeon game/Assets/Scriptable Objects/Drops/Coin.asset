@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e63e5e321e294bcda55bc06f2058f1f, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  dropName: 
-  dropChance: 0
+  dropPrefab: {fileID: 833615133226343576, guid: 254b79426a1944d78896bdf4006570f3, type: 3}
+  dropChance: 30
+  maxAmount: 3
