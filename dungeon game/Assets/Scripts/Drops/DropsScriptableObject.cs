@@ -11,7 +11,7 @@ public class DropsScriptableObject : ScriptableObject
 
     [SerializeField]
     int dropChance;
-    public int DropChance { get => dropChance; private set => dropChance = value; }
+    public int DropChance { get => dropChance; set => dropChance = value; }
 
     [SerializeField]
     int maxAmount;

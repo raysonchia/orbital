@@ -11,7 +11,6 @@ public class DropsSpawner : MonoBehaviour
     {
         int rand = Random.Range(1, 101);
         List<DropsScriptableObject> possibleItems = new List<DropsScriptableObject>();
-
         foreach (DropsScriptableObject drop in dropList)
         {
             if (rand  <= drop.DropChance)
@@ -38,21 +37,6 @@ public class DropsSpawner : MonoBehaviour
                 }
             }
         }
-
-        //if (rand == 1)
-        //{
-        //    //ObjectPool.SpawnObject(health, transform.position, Quaternion.identity);
-        //}
-
-        //if (rand == 2)
-        //{
-        //    int randAmount = Random.Range(1, 5);
-
-        //    for (int i = 0; i < randAmount; i++)
-        //    {
-        //        //ObjectPool.SpawnObject(coin, transform.position, Quaternion.identity);
-        //    }
-        //}
     }
 
     public void WeaponDrop()
@@ -62,6 +46,25 @@ public class DropsSpawner : MonoBehaviour
 
     public void ChestDrops()
     {
-        // weapon
+        foreach (DropsScriptableObject drop in dropList)
+        {
+            drop.DropChance = 100;
+        }
+
+        List<DropsScriptableObject> itemsToSpawn = GetDropsData();
+
+        if (itemsToSpawn.Count > 0)
+        {
+            Debug.Log(itemsToSpawn.Count);
+            foreach (DropsScriptableObject drop in itemsToSpawn)
+            {
+                int randAmount = Random.Range(drop.MaxAmount, (drop.MaxAmount) * 3 + 1);
+                Debug.Log("amount = " + randAmount);
+                for (int i = 0; i < randAmount; i++)
+                {
+                    ObjectPool.SpawnObject(drop.DropPrefab, transform.position, Quaternion.identity);
+                }
+            }
+        }
     }
 }

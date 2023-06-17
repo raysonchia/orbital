@@ -8,10 +8,13 @@ public class WizardMovement : SimpleEnemyMovement
     private bool attackBlocked;
     [SerializeField]
     private GameObject circleProjectile, rapidProjectile;
-    public float projectileSpeed;
-    public float range;
     private EnemyAttacks attacks;
     private Animator animator;
+    [SerializeField]
+    private GameObject chest;
+
+    public float projectileSpeed;
+    public float range;
     public bool rapidFire;
 
     [SerializeField]
@@ -42,6 +45,7 @@ public class WizardMovement : SimpleEnemyMovement
         health = GetComponent<EnemyReceiveDamage>().health;
         if (health <= 0)
         {
+            chest.SetActive(true);
             this.enabled = false;
             attacks.StopAllCoroutines(); // stop attacks
             StopAllCoroutines();

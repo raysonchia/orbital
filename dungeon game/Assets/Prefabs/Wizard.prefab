@@ -648,6 +648,7 @@ MonoBehaviour:
   lineOfSight: 20
   circleProjectile: {fileID: 337364830751109172, guid: 242d9a7e3698b4488941f8aecbf67a05, type: 3}
   rapidProjectile: {fileID: 7569553919794080108, guid: b162d8e17d5c94a7ba2c7de9be9c66c2, type: 3}
+  chest: {fileID: 6423225485473131715, guid: 950ff794a3e0541e8b9fc2b1366d2257, type: 3}
   projectileSpeed: 0
   range: 6.5
   rapidFire: 0
