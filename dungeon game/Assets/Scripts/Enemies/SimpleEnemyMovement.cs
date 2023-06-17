@@ -152,6 +152,10 @@ public class SimpleEnemyMovement : MonoBehaviour
         health = GetComponent<EnemyReceiveDamage>().health;
         if (health <= 0)
         {
+            if (GetComponent<DropsSpawner>() != null)
+            {
+                GetComponent<DropsSpawner>().SpawnDrops();
+            }
             // disable movement
             this.enabled = false;
             // disable collision

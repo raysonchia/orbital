@@ -99,6 +99,7 @@ public class PickUp : MonoBehaviour
         switch (pickUpType)
         {
             case PickUpType.Coin:
+                EconomyManager.Instance.UpdateCoins();
                 break;
             case PickUpType.Health:
                 health.Heal();

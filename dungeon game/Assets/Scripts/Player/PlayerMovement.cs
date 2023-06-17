@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            EconomyManager.Instance.ResetCoinCounter();
         }
     }
 

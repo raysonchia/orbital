@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e63e5e321e294bcda55bc06f2058f1f, type: 3}
   m_Name: Health
   m_EditorClassIdentifier: 
-  dropName: 
-  dropChance: 0
+  dropPrefab: {fileID: 833615133226343576, guid: 5f68cb9bd9a204564b45fd5d1de3c414, type: 3}
+  dropChance: 4
+  maxAmount: 1
