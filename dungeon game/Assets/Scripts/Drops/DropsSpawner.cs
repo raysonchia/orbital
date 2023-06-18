@@ -33,7 +33,7 @@ public class DropsSpawner : MonoBehaviour
                 int randAmount = Random.Range(1, drop.MaxAmount + 1);
                 for (int i = 0; i < randAmount; i++)
                 {
-                    ObjectPool.SpawnObject(drop.DropPrefab, transform.position, Quaternion.identity);
+                    SpawnPrefab(drop.DropPrefab);
                 }
             }
         }
@@ -55,16 +55,29 @@ public class DropsSpawner : MonoBehaviour
 
         if (itemsToSpawn.Count > 0)
         {
-            Debug.Log(itemsToSpawn.Count);
+            //Debug.Log(itemsToSpawn.Count);
             foreach (DropsScriptableObject drop in itemsToSpawn)
             {
                 int randAmount = Random.Range(drop.MaxAmount, (drop.MaxAmount) * 3 + 1);
                 Debug.Log("amount = " + randAmount);
                 for (int i = 0; i < randAmount; i++)
                 {
-                    ObjectPool.SpawnObject(drop.DropPrefab, transform.position, Quaternion.identity);
+                    SpawnPrefab(drop.DropPrefab);
                 }
             }
         }
+    }
+
+    private void SpawnPrefab(GameObject drop)
+    {
+        GameObject droppedObj = ObjectPool.SpawnObject(drop, transform.position, Quaternion.identity);
+        droppedObj.layer = LayerMask.NameToLayer("SpawnedDrops");
+        StartCoroutine(CollisionDelayRoutine(droppedObj));
+    }
+
+    private IEnumerator CollisionDelayRoutine(GameObject drop)
+    {
+        yield return new WaitForSeconds(0.5f);
+        drop.layer = LayerMask.NameToLayer("Drops");
     }
 }
