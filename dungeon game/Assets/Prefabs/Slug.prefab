@@ -581,6 +581,7 @@ MonoBehaviour:
   dropList:
   - {fileID: 11400000, guid: 752be0dd3574e4e5d907f712b6e19fe7, type: 2}
   - {fileID: 11400000, guid: 157ee835e19874250901f18bfd6cec9d, type: 2}
+  - {fileID: 11400000, guid: 415b15a048755490ab12b2c5b0cca781, type: 2}
 --- !u!1 &5625200123575408189
 GameObject:
   m_ObjectHideFlags: 0

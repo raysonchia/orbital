@@ -87,7 +87,7 @@ public class PlayerHealth : MonoBehaviour
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
             animator.SetTrigger("isDead");
-            EconomyManager.Instance.ResetCoinCounter();
+            EconomyManager.Instance.ResetInDungeonEconomy();
             Debug.Log("dead");
             CancelInvoke();
             StartCoroutine(GameOver());

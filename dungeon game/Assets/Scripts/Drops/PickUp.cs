@@ -7,7 +7,8 @@ public class PickUp : MonoBehaviour
     private enum PickUpType
     {
         Coin,
-        Health
+        Health,
+        Key
     }
 
     [SerializeField]
@@ -24,7 +25,7 @@ public class PickUp : MonoBehaviour
     private float popDuration = 1f;
 
     private float moveSpeed = 3f;
-    private Vector3 moveDir;
+    private Vector3 moveDir, popVector;
     private Transform player;
     private Rigidbody2D rb;
     private PlayerHealth health; // prob will change health to singleton
@@ -82,14 +83,15 @@ public class PickUp : MonoBehaviour
 
         float timePassed = 0f;
 
-        while(timePassed < popDuration)
+        while (timePassed < popDuration)
         {
             timePassed += Time.deltaTime;
             float linearT = timePassed / popDuration;
             float heightT = animCurve.Evaluate(linearT);
             float height = Mathf.Lerp(0f, heightY, heightT);
 
-            transform.position = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
+            popVector = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
+            transform.position = popVector;
             yield return null;
         }
     }
@@ -100,6 +102,9 @@ public class PickUp : MonoBehaviour
         {
             case PickUpType.Coin:
                 EconomyManager.Instance.UpdateCoins();
+                break;
+            case PickUpType.Key:
+                EconomyManager.Instance.UpdateKeys();
                 break;
             case PickUpType.Health:
                 health.Heal();

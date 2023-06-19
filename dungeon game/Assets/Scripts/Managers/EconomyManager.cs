@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 public class EconomyManager : Singleton<EconomyManager>
 {
     private TMP_Text coinText, keyText;
-    private int currentCoins = 0, keyCount = 1;
+    private int currentCoins = 0, currentKeys = 0;
     const string COIN_AMOUNT_TEXT = "CoinCount", KEY_AMOUNT_TEXT = "KeyCount";
 
-    public void ResetCoinCounter()
+    public void ResetInDungeonEconomy()
     {
         currentCoins = 0;
+        currentKeys = 0;
     }
 
     public void UpdateCoins()
@@ -24,5 +25,16 @@ public class EconomyManager : Singleton<EconomyManager>
         }
 
         coinText.text = currentCoins.ToString();
+    }
+
+    public void UpdateKeys()
+    {
+        currentKeys += 1;
+        if (keyText == null)
+        {
+            keyText = GameObject.Find(KEY_AMOUNT_TEXT).GetComponent<TMP_Text>();
+        }
+
+        keyText.text = currentKeys.ToString();
     }
 }
