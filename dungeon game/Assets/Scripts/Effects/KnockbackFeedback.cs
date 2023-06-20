@@ -9,6 +9,8 @@ public class KnockbackFeedback : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private float strength = 16, delay = 0.15f;
+    [SerializeField]
+    private bool isEnemy = false;
 
     public UnityEvent OnBegin, OnDone;
 
@@ -28,5 +30,4 @@ public class KnockbackFeedback : MonoBehaviour
         rb.velocity = Vector3.zero;
         OnDone?.Invoke();
     }
-
 }
