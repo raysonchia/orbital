@@ -72,10 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 384, y: 336}
-  Name: Room
-  IndividualRoomTemplates:
-  - {fileID: 4734897108446784294, guid: 444b01c145a3d4c86aeb09013479781c, type: 3}
-  RoomTemplateSets: []
+  Name: Normal
+  IndividualRoomTemplates: []
+  RoomTemplateSets:
+  - {fileID: 11400000, guid: d3a9cfad1086b4e8185a7c52aedba726, type: 2}
 --- !u!114 &-3609024656152487806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,10 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 128, y: 336}
-  Name: Room
-  IndividualRoomTemplates:
-  - {fileID: 4734897108446784294, guid: 444b01c145a3d4c86aeb09013479781c, type: 3}
-  RoomTemplateSets: []
+  Name: Normal
+  IndividualRoomTemplates: []
+  RoomTemplateSets:
+  - {fileID: 11400000, guid: d3a9cfad1086b4e8185a7c52aedba726, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,9 +159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 384, y: 400}
-  Name: Room
+  Name: Exit
   IndividualRoomTemplates:
-  - {fileID: 4734897108446784294, guid: 444b01c145a3d4c86aeb09013479781c, type: 3}
+  - {fileID: 1786338315034775258, guid: 56e9b8de342c54650b444f19fdd50fa6, type: 3}
   RoomTemplateSets: []
 --- !u!114 &2932098893463540200
 MonoBehaviour:
@@ -193,10 +193,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 256, y: 336}
-  Name: Room
-  IndividualRoomTemplates:
-  - {fileID: 4734897108446784294, guid: 444b01c145a3d4c86aeb09013479781c, type: 3}
-  RoomTemplateSets: []
+  Name: Normal
+  IndividualRoomTemplates: []
+  RoomTemplateSets:
+  - {fileID: 11400000, guid: d3a9cfad1086b4e8185a7c52aedba726, type: 2}
 --- !u!114 &4160419881273528829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 256, y: 272}
-  Name: Room
-  IndividualRoomTemplates:
-  - {fileID: 4734897108446784294, guid: 444b01c145a3d4c86aeb09013479781c, type: 3}
-  RoomTemplateSets: []
+  Name: Normal
+  IndividualRoomTemplates: []
+  RoomTemplateSets:
+  - {fileID: 11400000, guid: d3a9cfad1086b4e8185a7c52aedba726, type: 2}
