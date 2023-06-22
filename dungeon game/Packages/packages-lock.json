@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.ondrejnepozitek.edgar.unity": {
+      "version": "https://github.com/OndrejNepozitek/Edgar-Unity.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "474f866c2be0959b2221665e9c24e6387cefc030"
+    },
     "com.singularitygroup.hotreload": {
       "version": "git+https://gitlab.hotreload.net/root/hot-reload-releases.git#1.12.1",
       "depth": 0,

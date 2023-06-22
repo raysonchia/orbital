@@ -60,6 +60,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Top_Wall
+    uniqueID: 2448977407
+    locked: 0
   - name: Misc
     uniqueID: 2208868371
     locked: 0
