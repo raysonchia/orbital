@@ -516,8 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 165089021283704805}
   weaponRenderer: {fileID: 165089022403509498}
-  scrollWheelUp: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  scrollWheelDown: {fileID: 0}
+  mouseScroll: {fileID: -4624733186144872463, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
 --- !u!1001 &4225850523166487824
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -48,6 +48,15 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "InventoryToggle",
+                    "type": "Button",
+                    "id": "2f61cf04-fd74-492e-a4a9-d07cc73b5c12",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 }
             ],
@@ -142,8 +151,8 @@
                 },
                 {
                     "name": "",
-                    "id": "4b94bf20-8050-4ae5-a180-939cca3334b7",
-                    "path": "<Mouse>/scroll/x",
+                    "id": "3fbfa0a2-3119-4b26-8057-65bca937eded",
+                    "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -153,12 +162,12 @@
                 },
                 {
                     "name": "",
-                    "id": "64161a75-42b3-415d-a6cc-f320b4afad61",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
+                    "id": "32587c46-e6ae-4ea9-9915-fb6cd688ed0b",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "Hold(duration=3)",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchWeapon",
+                    "action": "InventoryToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

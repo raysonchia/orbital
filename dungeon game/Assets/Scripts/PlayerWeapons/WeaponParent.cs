@@ -9,7 +9,7 @@ public class WeaponParent : MonoBehaviour
     public Vector2 PointerPosition { get; set; }
     private Vector2 direction;
     [SerializeField]
-    private InputActionReference scrollWheelUp, scrollWheelDown;
+    private InputActionReference mouseScroll;
 
     // Update is called once per frame
     void Update()
@@ -18,8 +18,7 @@ public class WeaponParent : MonoBehaviour
         Rotate();
         Flip();
         SetSortingLayer();
-        isScrollUp();
-        isScrollDown();
+        CheckSwitchWeapon();
     }
 
     private void Rotate()
@@ -61,19 +60,18 @@ public class WeaponParent : MonoBehaviour
         }
     }
 
-    private void isScrollUp()
+    private void CheckSwitchWeapon()
     {
-        if (scrollWheelUp.action.ReadValue<float>() > 0.1f)
+        if (mouseScroll.action.ReadValue<float>() > 0.1f)
         {
             // prev weapon
+            Debug.Log("scroll up");
+        }
+        else if (mouseScroll.action.ReadValue<float>() < 0.1f)
+        {
+            Debug.Log("scroll down");
         }
     }
 
-    private void isScrollDown()
-    {
-        if (scrollWheelUp.action.ReadValue<float>() < -0.1f)
-        {
-            // next weapon
-        }
-    }
+
 }
