@@ -18,7 +18,7 @@ public class WeaponParent : MonoBehaviour
         Rotate();
         Flip();
         SetSortingLayer();
-        CheckSwitchWeapon();
+        //CheckSwitchWeapon();
     }
 
     private void Rotate()

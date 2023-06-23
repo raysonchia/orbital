@@ -5,6 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponScriptableObject", menuName = "ScriptableObjects/Weapon")]
 public class WeaponScriptableObject : ScriptableObject
 {
+    public int ID => GetInstanceID();
+
+    public int MaxStackSize { get; private set; } = 1;
+    [field: SerializeField]
+    public string Name { get; private set; }
+    [field: SerializeField]
+    [field: TextArea]
+    public string Description { get; private set;  }
+    [field: SerializeField]
+    public Sprite ItemImage { get; private set;  }
+
     [SerializeField]
     GameObject weaponPrefab;
     public GameObject WeaponPrefab { get => weaponPrefab; private set => weaponPrefab = value; }

@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d012e4ea1f44c1297837baad469648, type: 3}
   m_Name: BaseGun
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Azure Sparker
+  <Description>k__BackingField: 'Embrace the dependable prowess of the Azure Sparker,
+    a trusty companion in your perilous dungeon crawl. With its cool blue hue and
+    sleek design, this compact firearm delivers reliable performance with each well-placed
+    shot. '
+  <ItemImage>k__BackingField: {fileID: -1327131888, guid: 49970ef24783b49dcbb4671cf0d0af3a, type: 3}
   weaponPrefab: {fileID: 3584170659673086926, guid: da97f0599e7db4f62945c0b869a56ae4, type: 3}
   damage: 5
   speed: 8
