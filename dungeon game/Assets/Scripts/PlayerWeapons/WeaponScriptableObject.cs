@@ -35,4 +35,8 @@ public class WeaponScriptableObject : ScriptableObject
     [SerializeField]
     float knockback;
     public float Knockback { get => knockback; private set => knockback = value; }
+
+    [SerializeField]
+    Vector2 weaponPos;
+    public Vector2 WeaponPos { get => weaponPos; private set => weaponPos = value; }
 }

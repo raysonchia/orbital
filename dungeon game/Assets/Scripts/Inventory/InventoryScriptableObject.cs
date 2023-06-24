@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Inventory.Model
@@ -29,16 +30,35 @@ namespace Inventory.Model
         {
             for (int i = 0; i < inventoryItems.Count; i++)
             {
+                while (IsInventoryFull() == false)
+                {
+                    AddItemToFirstFreeSlot(weapon);
+                    return;
+                }
+                InformAboutChange();
+            }
+        }
+
+        private void AddItemToFirstFreeSlot (WeaponScriptableObject weapon)
+        {
+            InventoryItemObject newWeapon = new InventoryItemObject
+            {
+                weapon = weapon
+            };
+
+            for (int i = 0; i < inventoryItems.Count; i++)
+            {
                 if (inventoryItems[i].IsEmpty())
                 {
-                    inventoryItems[i] = new InventoryItemObject
-                    {
-                        weapon = weapon
-                    };
+                    inventoryItems[i] = newWeapon;
                     return;
                 }
             }
+            return;
         }
+
+        private bool IsInventoryFull()
+            => inventoryItems.Where(item => item.IsEmpty()).Any() == false;
 
         public void AddItem(InventoryItemObject item)
         {

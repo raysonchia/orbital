@@ -23,3 +23,4 @@ MonoBehaviour:
   speed: 9
   fireRate: 0.5
   knockback: 2
+  weaponPos: {x: 0.95, y: 0}

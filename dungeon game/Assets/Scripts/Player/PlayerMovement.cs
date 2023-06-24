@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 pointerInput, movementInput, rotateInput;
     private WeaponParent weaponParent;
-    private Shoot shoot;
+    public Shoot shoot;
     private Animate animate;
 
     [SerializeField]

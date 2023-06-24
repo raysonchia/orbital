@@ -16,4 +16,9 @@ public class AnimationEventHelper : MonoBehaviour
     {
         OnAttackPerformed?.Invoke();
     }
+
+    public void ReturnToPool()
+    {
+        ObjectPool.ReturnObjectToPool(this.gameObject);
+    }
 }

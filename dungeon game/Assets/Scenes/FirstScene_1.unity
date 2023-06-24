@@ -739,11 +739,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -755,11 +755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 102
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6987786773502344366, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1882,6 +1882,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d959e62ef4fe440cc91f05b7e8210296, type: 3}
+--- !u!1 &412599931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3584170659673086926, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
+  m_PrefabInstance: {fileID: 1248966460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &412599935
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412599931}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18afa4856596e48488a35bfaea8cf41f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &427400218
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,6 +4372,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!212 &550650437 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 165089022403509498, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
+  m_PrefabInstance: {fileID: 165089021484557856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &571952476
 GameObject:
   m_ObjectHideFlags: 0
@@ -7301,9 +7332,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1133155869531737279, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
+      propertyPath: <weapon>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: d1acb6cc8bbca472ab96a70788f1521d, type: 2}
+    - target: {fileID: 3584170659548265669, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 8732996073453498237, guid: d87f6cac531b94769b0685527a6a8c99, type: 3}
     - target: {fileID: 3584170659673086926, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
       propertyPath: m_Name
       value: another gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584170659673086926, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3584170659673086927, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
       propertyPath: m_RootOrder
@@ -9014,6 +9057,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165089021283704805, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 165089021974579715, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9062,6 +9109,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 165089022403509496, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 165089022620961248, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
+      propertyPath: weaponRenderer
+      value: 
+      objectReference: {fileID: 550650437}
+    - target: {fileID: 6858360791804086294, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858360791804086295, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 8203477063199643986, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
       propertyPath: restartScreen
       value: 
@@ -9091,6 +9154,18 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 163703086}
+    - target: {fileID: 2259478776040571834, guid: cdb89d109b4fc4667b9b7cf08ffe7149, type: 3}
+      propertyPath: initalItems.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259478776040571834, guid: cdb89d109b4fc4667b9b7cf08ffe7149, type: 3}
+      propertyPath: initalItems.Array.data[0].weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
+    - target: {fileID: 2259478776040571834, guid: cdb89d109b4fc4667b9b7cf08ffe7149, type: 3}
+      propertyPath: initalItems.Array.data[1].weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: d1acb6cc8bbca472ab96a70788f1521d, type: 2}
     - target: {fileID: 5110191068649378771, guid: cdb89d109b4fc4667b9b7cf08ffe7149, type: 3}
       propertyPath: m_RootOrder
       value: 16
