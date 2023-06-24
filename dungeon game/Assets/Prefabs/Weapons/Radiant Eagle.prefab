@@ -146,5 +146,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRange: 3
   interact: {fileID: -4487522083104231864, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
-  <weapon>k__BackingField: {fileID: 11400000, guid: d1acb6cc8bbca472ab96a70788f1521d, type: 2}
+  <weaponSO>k__BackingField: {fileID: 11400000, guid: d1acb6cc8bbca472ab96a70788f1521d, type: 2}
   pickUpAnimation: {fileID: 95609721117030239, guid: 772670b480c1a4b8a80e2013070496f9, type: 3}

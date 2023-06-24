@@ -10,7 +10,7 @@ namespace Inventory.Model
     public class InventoryScriptableObject : ScriptableObject
     {
         [SerializeField]
-        private List<InventoryItemObject> inventoryItems;
+        public List<InventoryItemObject> inventoryItems;
 
         [field: SerializeField]
         public int Size { get; private set; } = 24;
@@ -19,6 +19,7 @@ namespace Inventory.Model
 
         public void Initialise()
         {
+            Debug.Log("setting up");
             inventoryItems = new List<InventoryItemObject>();
             for (int i = 0; i < Size; i++)
             {

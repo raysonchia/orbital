@@ -19,6 +19,11 @@ namespace Inventory
 
         private void Start()
         {
+            ResetInventory();
+        }
+
+        public void ResetInventory()
+        {
             PrepareUI();
             PrepareInventoryData();
         }
@@ -93,6 +98,7 @@ namespace Inventory
         {
             if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I))
             {
+                inventoryUI = GameObject.Find("InGameCanvas").GetComponentInChildren<InventoryPage>(true);
                 if (inventoryUI.isActiveAndEnabled == false)
                 {
                     inventoryUI.Show();

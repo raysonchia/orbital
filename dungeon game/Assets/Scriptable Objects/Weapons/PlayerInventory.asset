@@ -14,27 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryItems:
   - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: d1acb6cc8bbca472ab96a70788f1521d, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  - weapon: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
+  - weapon: {fileID: 0}
   <Size>k__BackingField: 24

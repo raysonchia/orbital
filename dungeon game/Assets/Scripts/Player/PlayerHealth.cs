@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Inventory;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
         animator = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
         defaultMat = playerSprite.material;
+        restartScreen.SetActive(false);
     }
 
     public void InitialiseHealth(int healthValue)
@@ -88,6 +90,7 @@ public class PlayerHealth : MonoBehaviour
             isDead = true;
             animator.SetTrigger("isDead");
             EconomyManager.Instance.ResetInDungeonEconomy();
+            InventoryController.Instance.ResetInventory();
             Debug.Log("dead");
             CancelInvoke();
             StartCoroutine(GameOver());

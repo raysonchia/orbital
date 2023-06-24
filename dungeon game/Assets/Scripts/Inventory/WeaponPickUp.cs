@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class WeaponPickUp : PickUpInteraction
 {
     [field: SerializeField]
-    public WeaponScriptableObject weapon { get; private set; }
+    public WeaponScriptableObject weaponSO { get; private set; }
     [SerializeField]
     private GameObject pickUpAnimation;
 
@@ -44,6 +44,7 @@ public class WeaponPickUp : PickUpInteraction
         weaponParent.GetComponent<WeaponParent>().weaponRenderer = sr;
         activeWeapon.sprite = sr.sprite;
         activeWeapon.SetNativeSize();
+        InventorySystem.Instance.PickUpWeapon(gameObject);
         MoveToPlayer();
         this.enabled = false;
     }
@@ -54,7 +55,7 @@ public class WeaponPickUp : PickUpInteraction
         gameObject.transform.localScale = Vector3.one;
         gameObject.transform.localRotation = Quaternion.identity;
         gameObject.transform.localPosition =
-            new Vector3(weapon.WeaponPos.x, weapon.WeaponPos.y);
+            new Vector3(weaponSO.WeaponPos.x, weaponSO.WeaponPos.y);
     }
 
     private void DisableCurrentWeapon()

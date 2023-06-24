@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Inventory;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -83,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             EconomyManager.Instance.ResetInDungeonEconomy();
+            InventoryController.Instance.ResetInventory();
         }
     }
 
