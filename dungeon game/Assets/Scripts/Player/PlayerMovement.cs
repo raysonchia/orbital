@@ -138,30 +138,5 @@ public class PlayerMovement : MonoBehaviour
     protected void Move(Vector2 direction)
     {
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
-        //bool success = TryMove(direction);
-        //if (!success) {
-        //    success = TryMove(new Vector2(direction.x, 0));
-        //}
-
-        //if (!success) {
-        //    success = TryMove(new Vector2(0, direction.y));
-        //}
-    }
-
-    private bool TryMove(Vector2 direction) 
-    {
-        if (canMove) {
-            int count = rb.Cast(
-                    direction,
-                    movementFilter,
-                    castCollisions,
-                    speed * Time.fixedDeltaTime + collisionOffset);
-
-            if (count == 0) {
-                rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
-                return true;
-            }
-        } 
-        return false;
     }
 }

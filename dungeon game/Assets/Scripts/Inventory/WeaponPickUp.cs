@@ -41,6 +41,8 @@ public class WeaponPickUp : PickUpInteraction
         // swap attack to picked up weapon
         player.gameObject.GetComponent<PlayerMovement>().shoot =
             GetComponentInChildren<Shoot>();
+
+        Debug.Log(weaponParent.GetComponent<WeaponParent>());
         weaponParent.GetComponent<WeaponParent>().weaponRenderer = sr;
         activeWeapon.sprite = sr.sprite;
         activeWeapon.SetNativeSize();
