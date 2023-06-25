@@ -13,7 +13,6 @@ public class MouseFollower : MonoBehaviour
 
     public void Awake()
     {
-        canvas = transform.root.GetComponent<Canvas>();
         item = GetComponentInChildren<InventoryItem>();
     }
 

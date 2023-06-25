@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 1ee164690c7a44accb75aefbe0ce1f2f, type: 2}
-  lineOfSight: 10
+  lineOfSight: 8
 --- !u!114 &4503134477834467760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +521,7 @@ MonoBehaviour:
   rb: {fileID: 1233594508084270918}
   strength: 1
   delay: 0.15
+  isEnemy: 0
   OnBegin:
     m_PersistentCalls:
       m_Calls:

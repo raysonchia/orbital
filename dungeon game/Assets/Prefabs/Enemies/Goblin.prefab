@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 81eace5e0c78e4c60b2ad40c5bcd42ce, type: 2}
-  lineOfSight: 10
+  lineOfSight: 8
   animator: {fileID: 3967962736928914290}
 --- !u!114 &2749909454323694235
 MonoBehaviour:
@@ -623,6 +623,7 @@ MonoBehaviour:
   rb: {fileID: -4453815844857350176}
   strength: 1
   delay: 0.15
+  isEnemy: 0
   OnBegin:
     m_PersistentCalls:
       m_Calls:

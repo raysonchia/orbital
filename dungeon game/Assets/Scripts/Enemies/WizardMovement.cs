@@ -12,6 +12,8 @@ public class WizardMovement : SimpleEnemyMovement
     private Animator animator;
     [SerializeField]
     private GameObject chest;
+    [SerializeField]
+    private GameObject staff;
 
     public float projectileSpeed;
     public float range;
@@ -46,6 +48,7 @@ public class WizardMovement : SimpleEnemyMovement
         if (health <= 0)
         {
             chest.SetActive(true);
+            staff.SetActive(true);
             this.enabled = false;
             attacks.StopAllCoroutines(); // stop attacks
             StopAllCoroutines();
