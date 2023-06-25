@@ -16,11 +16,14 @@ public class Chest : PickUpInteraction
 
     private void OpenChest()
     {
-        animator.SetTrigger("Open");
-        interacted = true;
-        if (GetComponent<DropsSpawner>() != null)
+        if (EconomyManager.Instance.UseKey())
         {
-            GetComponent<DropsSpawner>().ChestDrops();
+            animator.SetTrigger("Open");
+            interacted = true;
+            if (GetComponent<DropsSpawner>() != null)
+            {
+                GetComponent<DropsSpawner>().ChestDrops();
+            }
         }
     }
 }

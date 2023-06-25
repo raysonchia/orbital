@@ -80,12 +80,12 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<PlayerMovement>().enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            EconomyManager.Instance.ResetInDungeonEconomy();
-            InventoryController.Instance.ResetInventory();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //    EconomyManager.Instance.ResetInDungeonEconomy();
+        //    InventoryController.Instance.ResetInventory();
+        //}
     }
 
     private void FixedUpdate()
