@@ -86,6 +86,11 @@ namespace Inventory.Model
 
         public void SwapItems(int itemIndex_1, int itemIndex_2)
         {
+            if (inventoryItems[itemIndex_1].weapon == null
+                || inventoryItems[itemIndex_2].weapon == null)
+            {
+                return;
+            }
             InventoryItemObject item1 = inventoryItems[itemIndex_1];
             inventoryItems[itemIndex_1] = inventoryItems[itemIndex_2];
             inventoryItems[itemIndex_2] = item1;
