@@ -19,7 +19,9 @@ MonoBehaviour:
     shot. '
   <ItemImage>k__BackingField: {fileID: -1327131888, guid: 49970ef24783b49dcbb4671cf0d0af3a, type: 3}
   weaponPrefab: {fileID: 3584170659673086926, guid: da97f0599e7db4f62945c0b869a56ae4, type: 3}
+  projectilePrefab: {fileID: 8732996073453498237, guid: d87f6cac531b94769b0685527a6a8c99, type: 3}
   damage: 5
   speed: 8
-  fireRate: 0.3
+  fireRate: 0.35
   knockback: 1
+  weaponPos: {x: 0, y: 0}

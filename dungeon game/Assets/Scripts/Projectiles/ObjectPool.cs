@@ -43,7 +43,11 @@ public class ObjectPool : MonoBehaviour
             // if there is an inactive object, reactive it
             spawnableObj.transform.position = spawnPosition;
             spawnableObj.transform.rotation = spawnRotation;
-            spawnableObj.GetComponent<Bullet>().startPosition = spawnPosition;
+            if (spawnableObj.GetComponent<Bullet>() != null)
+            {
+                spawnableObj.GetComponent<Bullet>().startPosition = spawnPosition;
+            }
+            
             pool.InactiveObjects.Remove(spawnableObj);
             spawnableObj.SetActive(true);
         }

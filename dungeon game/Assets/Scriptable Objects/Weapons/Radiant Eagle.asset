@@ -19,8 +19,9 @@ MonoBehaviour:
     through the dungeons.
   <ItemImage>k__BackingField: {fileID: -173573435, guid: 49970ef24783b49dcbb4671cf0d0af3a, type: 3}
   weaponPrefab: {fileID: 3584170659673086926, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
-  damage: 7
+  projectilePrefab: {fileID: 228339136768006170, guid: e4498c84f32ab4170822549c4194a2e4, type: 3}
+  damage: 14
   speed: 9
-  fireRate: 0.5
+  fireRate: 0.7
   knockback: 2
   weaponPos: {x: 0.95, y: 0}

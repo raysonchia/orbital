@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
-    public GameObject projectile;
+    private GameObject projectile;
     public WeaponScriptableObject weaponData;
     private float nextFire;
     private float fireRate;
@@ -14,6 +14,7 @@ public class Shoot : MonoBehaviour
 
     private void Start()
     {
+        projectile = weaponData.ProjectilePrefab;
         fireRate = weaponData.FireRate;
         speed = weaponData.Speed;
     }
