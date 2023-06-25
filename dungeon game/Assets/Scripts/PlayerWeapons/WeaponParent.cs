@@ -70,7 +70,8 @@ public class WeaponParent : MonoBehaviour
 
     private void CheckSwitchWeapon()
     {
-        if (mouseScroll.action.ReadValue<float>() >= 1f)
+        if (mouseScroll.action.ReadValue<float>() >= 1f
+            || Input.GetKeyDown(KeyCode.Alpha1))
         {
             // prev weapon
             CheckWeaponSwitchable();
@@ -81,7 +82,9 @@ public class WeaponParent : MonoBehaviour
             GameObject weaponToActive = FindInActiveObjectByName(nextWeapon);
             SwitchWeapon(weaponToActive);
         }
-        else if (mouseScroll.action.ReadValue<float>() <= -1f)
+        else if
+            (mouseScroll.action.ReadValue<float>() <= -1f
+            || Input.GetKeyDown(KeyCode.Alpha2))
         {
             CheckWeaponSwitchable();
             Debug.Log("scroll down");

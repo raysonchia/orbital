@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         InitialiseHealth(6);
-        if (SceneManager.GetActiveScene().name != "MainHub")
+        if (SceneManager.GetActiveScene().name != "Base")
         {
             UpdateHealthUI();
         }
