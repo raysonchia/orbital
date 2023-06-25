@@ -739,11 +739,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -755,11 +755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 102
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6818767496969317917, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6987786773502344366, guid: 47e52001990ea4c818e2e434806e85eb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4346,11 +4346,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!212 &550650437 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 165089022403509498, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
-  m_PrefabInstance: {fileID: 165089021484557856}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &571952476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4723,6 +4718,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1133155869531737279, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
+      propertyPath: weaponParent
+      value: 
+      objectReference: {fileID: 1358424080}
     - target: {fileID: 3584170659673086926, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
       propertyPath: m_Name
       value: Radiant Eagle
@@ -7615,6 +7614,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d959e62ef4fe440cc91f05b7e8210296, type: 3}
+--- !u!1 &1358424080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 165089022620961182, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
+  m_PrefabInstance: {fileID: 165089021484557856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1489007860
 GameObject:
   m_ObjectHideFlags: 0
@@ -7694,6 +7698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enigma Staff
       objectReference: {fileID: 0}
+    - target: {fileID: 3912124750498522999, guid: bdd6adfd5cc9845dd8bbac683db050cd, type: 3}
+      propertyPath: weaponParent
+      value: 
+      objectReference: {fileID: 1358424080}
     - target: {fileID: 4358771141972708144, guid: bdd6adfd5cc9845dd8bbac683db050cd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -9106,10 +9114,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 165089021283704805, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 165089021974579715, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9157,30 +9161,6 @@ PrefabInstance:
     - target: {fileID: 165089021974579716, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 165089022403509496, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
-      propertyPath: m_Name
-      value: Azure Sparker
-      objectReference: {fileID: 0}
-    - target: {fileID: 165089022403509496, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 165089022620961248, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
-      propertyPath: weaponRenderer
-      value: 
-      objectReference: {fileID: 550650437}
-    - target: {fileID: 3193096203216037851, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.088
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858360791804086294, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858360791804086295, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 8203477063199643986, guid: 0c06b0ecebc5949528cae25a95ca5bed, type: 3}
       propertyPath: restartScreen

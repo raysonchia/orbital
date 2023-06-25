@@ -10,7 +10,7 @@ public class WeaponPickUp : PickUpInteraction
     public WeaponScriptableObject weaponSO { get; private set; }
     [SerializeField]
     private GameObject pickUpAnimation;
-
+    [SerializeField]
     private GameObject weaponParent;
     private List<GameObject> currentWeapons;
     private Image activeWeapon;
@@ -18,7 +18,6 @@ public class WeaponPickUp : PickUpInteraction
 
     private void Start()
     {
-        weaponParent = GameObject.Find("WeaponParent");
         activeWeapon = GameObject.Find("WeaponImage").GetComponent<Image>();
         sr = GetComponent<SpriteRenderer>();
     }

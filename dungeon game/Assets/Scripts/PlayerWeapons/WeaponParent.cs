@@ -134,7 +134,8 @@ public class WeaponParent : MonoBehaviour
 
     private GameObject FindInActiveObjectByName(string name)
     {
-        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        Debug.Log(name + " is being searched");
+        SpriteRenderer[] objs = GameObject.FindObjectsOfType<SpriteRenderer>(true);
         for (int i = 0; i < objs.Length; i++)
         {
             if (objs[i].hideFlags == HideFlags.None)

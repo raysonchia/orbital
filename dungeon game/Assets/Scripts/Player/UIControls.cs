@@ -8,6 +8,6 @@ public class UIControls : MonoBehaviour
 {
     public void RestartButton()
     {
-        SceneManager.LoadScene("MainHub");
+        SceneManager.LoadScene("Base");
     }
 }

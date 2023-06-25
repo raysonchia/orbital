@@ -14,12 +14,13 @@ public class Shoot : MonoBehaviour
 
     private void Start()
     {
-        projectile = weaponData.ProjectilePrefab;
         fireRate = weaponData.FireRate;
         speed = weaponData.Speed;
     }
     public void shootAction()
     {
+        projectile = weaponData.ProjectilePrefab;
+
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;

@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4ef0f7b85321d4701a352b2060ee5c34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   fullHeart: {fileID: 21300000, guid: 064fe8d0c474e479eab9c20d66ac43c2, type: 3}
   halfHeart: {fileID: 21300000, guid: b793e4bcda01847c7971d8ec92539da3, type: 3}
   emptyHeart: {fileID: 21300000, guid: cb00df4f615b24c8093c039eb2feb9d8, type: 3}
-  restartScreen: {fileID: 6711142962097109642, guid: fccd00ea6e8f74faba4337b0957f7f95, type: 3}
+  restartScreen: {fileID: 0}
 --- !u!114 &165089021283704808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4102708058895010280, guid: dcbab1f2484d74dc5a60392c7d71001a, type: 3}
       propertyPath: m_Name
-      value: Base Gun
+      value: Azure Sparker
       objectReference: {fileID: 0}
     - target: {fileID: 4102708058895010280, guid: dcbab1f2484d74dc5a60392c7d71001a, type: 3}
       propertyPath: m_Layer
