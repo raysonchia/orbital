@@ -10,10 +10,6 @@ public class WizardMovement : SimpleEnemyMovement
     private GameObject circleProjectile, rapidProjectile;
     private EnemyAttacks attacks;
     private Animator animator;
-    [SerializeField]
-    private GameObject chest;
-    [SerializeField]
-    private GameObject staff;
 
     public float projectileSpeed;
     public float range;
@@ -47,13 +43,12 @@ public class WizardMovement : SimpleEnemyMovement
         health = GetComponent<EnemyReceiveDamage>().health;
         if (health <= 0)
         {
-            chest.SetActive(true);
-            staff.SetActive(true);
-            this.enabled = false;
             attacks.StopAllCoroutines(); // stop attacks
             StopAllCoroutines();
             gameObject.layer = LayerMask.NameToLayer("Corpse");
             GetComponent<SpriteRenderer>().sortingLayerName = "Corpse";
+            BossDropSpawner.Instance.SpawnDrop();
+            this.enabled = false;
         }
     }
 
