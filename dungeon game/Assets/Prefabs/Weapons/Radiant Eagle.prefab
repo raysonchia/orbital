@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 3584170659673086927}
   - component: {fileID: 3584170659673086924}
   - component: {fileID: -1133155869531737279}
+  - component: {fileID: 6743176312764497547}
   m_Layer: 7
   m_Name: Radiant Eagle
   m_TagString: Untagged
@@ -148,3 +149,50 @@ MonoBehaviour:
   <weaponSO>k__BackingField: {fileID: 11400000, guid: d1acb6cc8bbca472ab96a70788f1521d, type: 2}
   pickUpAnimation: {fileID: 95609721117030239, guid: 772670b480c1a4b8a80e2013070496f9, type: 3}
   weaponParent: {fileID: 0}
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.4999918
+      inSlope: 0.010909109
+      outSlope: 0.010909109
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.0050029755
+      inSlope: -1.3568207
+      outSlope: -1.3568207
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.21856427
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6743176312764497547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584170659673086926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447e33b87c307473b89eac5cc1a9b8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightY: 1.5
+  popDuration: 1

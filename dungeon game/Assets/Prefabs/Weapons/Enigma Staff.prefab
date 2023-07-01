@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4358771141972708144}
   - component: {fileID: 7676629126457319895}
   - component: {fileID: 3912124750498522999}
+  - component: {fileID: -2455801545387192559}
   m_Layer: 7
   m_Name: Enigma Staff
   m_TagString: Untagged
@@ -101,7 +102,28 @@ MonoBehaviour:
   interactionRange: 3
   interact: {fileID: -4487522083104231864, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
   <weaponSO>k__BackingField: {fileID: 11400000, guid: 4a686532a41b34e84965a280afb5f60f, type: 2}
+  weaponParent: {fileID: 0}
+  animCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   pickUpAnimation: {fileID: 95609721117030239, guid: 772670b480c1a4b8a80e2013070496f9, type: 3}
+--- !u!114 &-2455801545387192559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466243646629531308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447e33b87c307473b89eac5cc1a9b8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightY: 1.5
+  popDuration: 1
 --- !u!1 &5618049970761877611
 GameObject:
   m_ObjectHideFlags: 0

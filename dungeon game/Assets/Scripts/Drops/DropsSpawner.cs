@@ -58,7 +58,7 @@ public class DropsSpawner : MonoBehaviour
             //Debug.Log(itemsToSpawn.Count);
             foreach (DropsScriptableObject drop in itemsToSpawn)
             {
-                int randAmount = Random.Range(drop.MaxAmount, (drop.MaxAmount) * 3 + 1);
+                int randAmount = Random.Range(1, drop.MaxAmount + 1);
                 Debug.Log("amount = " + randAmount);
                 for (int i = 0; i < randAmount; i++)
                 {

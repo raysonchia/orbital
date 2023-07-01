@@ -19,27 +19,28 @@ public class PickUp : MonoBehaviour
     private float accelerationRate = .2f;
     [SerializeField]
     private AnimationCurve animCurve;
-    [SerializeField]
-    private float heightY = 1.5f;
-    [SerializeField]
-    private float popDuration = 1f;
 
     private float moveSpeed = 3f;
-    private Vector3 moveDir, popVector;
+    private Vector3 moveDir;
     private Transform player;
     private Rigidbody2D rb;
     private PlayerHealth health; // prob will change health to singleton
+    private DropAnimation dropAnimator;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
         rb = GetComponent<Rigidbody2D>();
         health = FindObjectOfType<PlayerHealth>().GetComponent<PlayerHealth>();
+        dropAnimator = GetComponent<DropAnimation>();
     }
 
     private void Start()
     {
-        StartCoroutine(AnimCurveSpawnRoutine());
+        StartCoroutine(
+            dropAnimator.AnimCurveSpawnRoutine(
+                animCurve,
+                gameObject.transform));
     }
 
     private void Update()
@@ -70,29 +71,6 @@ public class PickUp : MonoBehaviour
             //ObjectPool.ReturnObjectToPool(gameObject); // next time
             DetectPickupType();
             Destroy(gameObject);
-        }
-    }
-
-    private IEnumerator AnimCurveSpawnRoutine()
-    {
-        Vector2 startPoint = transform.position;
-        float randomX = transform.position.x + Random.Range(-2f, 2f);
-        float randomY = transform.position.y + Random.Range(-1f, 1f);
-
-        Vector2 endPoint = new Vector2(randomX, randomY);
-
-        float timePassed = 0f;
-
-        while (timePassed < popDuration)
-        {
-            timePassed += Time.deltaTime;
-            float linearT = timePassed / popDuration;
-            float heightT = animCurve.Evaluate(linearT);
-            float height = Mathf.Lerp(0f, heightY, heightT);
-
-            popVector = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
-            transform.position = popVector;
-            yield return null;
         }
     }
 

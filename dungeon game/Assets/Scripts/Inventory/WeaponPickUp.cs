@@ -9,23 +9,42 @@ public class WeaponPickUp : PickUpInteraction
     [field: SerializeField]
     public WeaponScriptableObject weaponSO { get; private set; }
     [SerializeField]
-    private GameObject pickUpAnimation;
-    [SerializeField]
     private GameObject weaponParent;
+    [SerializeField]
+    private AnimationCurve animCurve;
+    [SerializeField]
+    private GameObject pickUpAnimation;
     private List<GameObject> currentWeapons;
     private Image activeWeapon;
     private SpriteRenderer sr;
+    private DropAnimation dropAnimator;
+    private bool interactable = false;
+
 
     private void Start()
     {
+        weaponParent = GameObject.FindWithTag("Player")
+            .transform
+            .GetChild(0)
+            .GetChild(0)
+            .gameObject;
+
         activeWeapon = GameObject.Find("WeaponImage").GetComponent<Image>();
         sr = GetComponent<SpriteRenderer>();
+        dropAnimator = GetComponent<DropAnimation>();
+        StartCoroutine(
+            dropAnimator.AnimCurveSpawnRoutine(
+                animCurve,
+                gameObject.transform));
+
+        // wait for animation to finish before interaction
+        StartCoroutine(Wait());
     }
 
     private void Update()
     {
         {
-            if (InRange())
+            if (InRange() && interactable)
             {
                 PickUpWeapon();
             }
@@ -84,5 +103,11 @@ public class WeaponPickUp : PickUpInteraction
         }
 
         return children;
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1f);
+        interactable = true;
     }
 }
