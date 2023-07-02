@@ -44,6 +44,23 @@ public class GoblinMovement : SimpleEnemyMovement
         }
     }
 
+    protected override void DisableOnDeath()
+    {
+        health = GetComponent<EnemyReceiveDamage>().health;
+        if (health <= 0)
+        {
+            if (GetComponent<DropsSpawner>() != null)
+            {
+                GetComponent<DropsSpawner>().SpawnDrops();
+            }
+            this.enabled = false;
+            gameObject.layer = LayerMask.NameToLayer("Corpse");
+            GetComponent<SpriteRenderer>().sortingLayerName = "Corpse";
+            // hide weapon
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        }
+    }
+
     private void Swing()
     {  
         animator.SetTrigger("Attack");
