@@ -140,7 +140,7 @@ public class WeaponParent : MonoBehaviour
         {
             if (objs[i].hideFlags == HideFlags.None)
             {
-                if (objs[i].name == name)
+                if (objs[i].name.Contains(name))
                 {
                     return objs[i].gameObject;
                 }
