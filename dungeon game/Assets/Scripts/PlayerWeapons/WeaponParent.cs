@@ -99,7 +99,7 @@ public class WeaponParent : MonoBehaviour
     private void SwitchWeapon(GameObject weaponToActive)
     {
         weaponToActive.SetActive(true);
-        player.shoot = weaponToActive.GetComponentInChildren<Shoot>();
+        player.shoot = weaponToActive.GetComponentInChildren<IWeapon>();
         activeWeapon.sprite = weaponToActive.GetComponent<SpriteRenderer>().sprite;
         activeWeapon.SetNativeSize();
     }

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class Shoot : PlayerAttacks
+public class Shoot : PlayerAttacks, IWeapon
 {
-    public void shootAction()
+    public void ShootAction()
     {
         base.BasicShooting();
     }

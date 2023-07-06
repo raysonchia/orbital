@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 pointerInput, movementInput, rotateInput;
     private WeaponParent weaponParent;
-    public Shoot shoot;
+    public IWeapon shoot;
     private Animate animate;
 
     [SerializeField]
@@ -22,9 +22,6 @@ public class PlayerMovement : MonoBehaviour
 
     //private float collideDelay = 1.2f;
     private float collisionOffset = 0.05f;
-    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-    public ContactFilter2D movementFilter;
-    private bool canMove = true;
 
     private void OnEnable()
     {
@@ -40,17 +37,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (obj.ReadValue<float>() == 1f)
         {
-            InvokeRepeating("holdShoot", 0f, 0.01f);
+            InvokeRepeating("HoldShoot", 0f, 0.01f);
         }
         else
         {
-            CancelInvoke("holdShoot");
+            CancelInvoke("HoldShoot");
         }
     }
 
-    private void holdShoot()
+    private void HoldShoot()
     {
-        shoot.shootAction();
+        shoot.ShootAction();
     }
 
     // Start is called before the first frame update
@@ -60,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animate = GetComponentInParent<Animate>();
         weaponParent = GetComponentInChildren<WeaponParent>();
-        shoot = GetComponentInChildren<Shoot>();
+        shoot = GetComponentInChildren<IWeapon>();
     }
 
     // Update is called once per frames
@@ -80,12 +77,12 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<PlayerMovement>().enabled = false;
         }
 
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //    EconomyManager.Instance.ResetInDungeonEconomy();
-        //    InventoryController.Instance.ResetInventory();
-        //}
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            EconomyManager.Instance.ResetInDungeonEconomy();
+            InventoryController.Instance.ResetInventory();
+        }
     }
 
     private void FixedUpdate()
