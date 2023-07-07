@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12d012e4ea1f44c1297837baad469648, type: 3}
-  m_Name: tbc
+  m_Name: Bonecrusher
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: tbc
-  <Description>k__BackingField: test
+  <Name>k__BackingField: Bonecrusher
+  <Description>k__BackingField: A fearsome weapon that shatters all in its path.
+    With each thunderous blast, the Bonecrusher propels a torrent of multiple devastating
+    bullets, reducing enemies to mere fragments.
   <ItemImage>k__BackingField: {fileID: 1112754843, guid: f97e7e1aa86d04ea8be6350ca34b9f1d, type: 3}
   weaponPrefab: {fileID: 5362924622782154373, guid: e25d81ee97e9a4f8b9444cc7e123c3a7, type: 3}
   projectilePrefab: {fileID: 8732996073453498237, guid: d87f6cac531b94769b0685527a6a8c99, type: 3}
   damage: 10
-  speed: 8
-  fireRate: 0.7
+  speed: 9
+  fireRate: 0.85
   knockback: 2
   weaponPos: {x: 1.08, y: 0}

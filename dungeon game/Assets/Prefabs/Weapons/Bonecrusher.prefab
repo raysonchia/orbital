@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: -7730990984125721606}
   - component: {fileID: 4540387357003193485}
   m_Layer: 7
-  m_Name: tbc
+  m_Name: Bonecrusher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
