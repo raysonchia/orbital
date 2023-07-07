@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e63e5e321e294bcda55bc06f2058f1f, type: 3}
-  m_Name: Key
+  m_Name: Chest Coins
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 15764227408741023, guid: ee5c7ce1224f24517a922b30f0fd6954, type: 3}
-  dropChance: 2
+  dropPrefab: {fileID: 833615133226343576, guid: 254b79426a1944d78896bdf4006570f3, type: 3}
+  dropChance: 100
   minAmount: 1
-  maxAmount: 1
+  maxAmount: 3

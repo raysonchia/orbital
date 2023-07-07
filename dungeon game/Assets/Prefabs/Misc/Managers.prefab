@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 242199702822929634}
   - component: {fileID: 2259478776040571834}
   - component: {fileID: 6170641054503409694}
+  - component: {fileID: 3661582301056037959}
   m_Layer: 0
   m_Name: Inventory Manager
   m_TagString: Untagged
@@ -63,6 +64,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryData: {fileID: 11400000, guid: 206e9dfe1fa4147889fddc026bde555e, type: 2}
   equipped: 
+--- !u!114 &3661582301056037959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727323756250955055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850bdd15cf85141e9aba83e8a3cb4848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPool:
+  - {fileID: 11400000, guid: 2f9aa825412504d3ca5cb720c041fc46, type: 2}
+  - {fileID: 11400000, guid: ac8ebd94dc3f542efb981cf91a28d768, type: 2}
 --- !u!1 &3893721133070389696
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseInput: {fileID: -3437023645523720288, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
+  isPaused: 0
 --- !u!1 &7198828730427307646
 GameObject:
   m_ObjectHideFlags: 0

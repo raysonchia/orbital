@@ -30,7 +30,7 @@ public class DropsSpawner : MonoBehaviour
         {
             foreach (DropsScriptableObject drop in itemsToSpawn)
             {
-                int randAmount = Random.Range(1, drop.MaxAmount + 1);
+                int randAmount = Random.Range(drop.MinAmount, drop.MaxAmount + 1);
                 for (int i = 0; i < randAmount; i++)
                 {
                     SpawnPrefab(drop.DropPrefab);
@@ -46,26 +46,39 @@ public class DropsSpawner : MonoBehaviour
 
     public void ChestDrops()
     {
-        foreach (DropsScriptableObject drop in dropList)
+        //foreach (DropsScriptableObject drop in dropList)
+        //{
+        //    drop.DropChance = 100;
+        //}
+
+        //List<DropsScriptableObject> itemsToSpawn = GetDropsData();
+
+        //if (itemsToSpawn.Count > 0)
+        //{
+        //    //Debug.Log(itemsToSpawn.Count);
+        //    foreach (DropsScriptableObject drop in itemsToSpawn)
+        //    {
+        //        int randAmount = Random.Range(drop.MinAmount, drop.MaxAmount + 1);
+        //        Debug.Log("amount = " + randAmount);
+        //        for (int i = 0; i < randAmount; i++)
+        //        {
+        //            SpawnPrefab(drop.DropPrefab);
+        //        }
+        //    }
+        //}
+
+        DropsScriptableObject weaponToDrop = WeaponPool.Instance.GetRandomWeapon();
+
+        if (weaponToDrop != null)
         {
-            drop.DropChance = 100;
+            SpawnPrefab(weaponToDrop.DropPrefab);
         }
 
-        List<DropsScriptableObject> itemsToSpawn = GetDropsData();
-
-        if (itemsToSpawn.Count > 0)
-        {
-            //Debug.Log(itemsToSpawn.Count);
-            foreach (DropsScriptableObject drop in itemsToSpawn)
-            {
-                int randAmount = Random.Range(1, drop.MaxAmount + 1);
-                Debug.Log("amount = " + randAmount);
-                for (int i = 0; i < randAmount; i++)
-                {
-                    SpawnPrefab(drop.DropPrefab);
-                }
-            }
-        }
+        //Debug.Log("inven: ");
+        //foreach (var kvp in InventorySystem.Instance.inventoryData.GetCurrentInventoryState())
+        //{
+        //    Debug.Log($"Key: {kvp.Key}, Value: {kvp.Value.weapon.Name}");
+        //}
     }
 
     private void SpawnPrefab(GameObject drop)

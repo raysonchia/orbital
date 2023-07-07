@@ -77,11 +77,13 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<PlayerMovement>().enabled = false;
         }
 
+        // REMOVE FROM BUILD
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             EconomyManager.Instance.ResetInDungeonEconomy();
             InventoryController.Instance.ResetInventory();
+            WeaponPool.Instance.Reset();
         }
     }
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6423225485473131724}
   - component: {fileID: 6423225485473131725}
   m_Layer: 12
-  m_Name: BossChest
+  m_Name: Chest
   m_TagString: BossChest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,5 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942a4e3d04e8241b2b10e95adacfd9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropList:
-  - {fileID: 11400000, guid: ac8ebd94dc3f542efb981cf91a28d768, type: 2}
+  dropList: []
