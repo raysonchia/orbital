@@ -79,6 +79,7 @@ MonoBehaviour:
   weaponPool:
   - {fileID: 11400000, guid: 2f9aa825412504d3ca5cb720c041fc46, type: 2}
   - {fileID: 11400000, guid: ac8ebd94dc3f542efb981cf91a28d768, type: 2}
+  - {fileID: 11400000, guid: 8c2f7af8329064286a816f6e1ef9451c, type: 2}
 --- !u!1 &3893721133070389696
 GameObject:
   m_ObjectHideFlags: 0
