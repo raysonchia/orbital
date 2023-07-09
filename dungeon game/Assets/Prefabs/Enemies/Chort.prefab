@@ -467,7 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 9c26c8e8c6758457495c88008d24f8f3, type: 2}
   lineOfSight: 12
-  projectile: {fileID: 337364830751109172, guid: 242d9a7e3698b4488941f8aecbf67a05, type: 3}
+  projectile: {fileID: 5318701327092904988, guid: 8e8921d2cde7042f4aa5e6aef2379004, type: 3}
   projectileSpeed: 0
   range: 0
 --- !u!114 &7043403132023095150
