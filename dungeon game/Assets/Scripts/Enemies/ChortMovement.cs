@@ -52,8 +52,6 @@ public class ChortMovement : SimpleEnemyMovement
             }
 
             attackBlocked = true;
-            Debug.Log("blocked");
-            Debug.Log(attackBlocked);
             Shoot();
             StartCoroutine(DelayAttack());
         }
@@ -70,19 +68,19 @@ public class ChortMovement : SimpleEnemyMovement
         animator.Play("ChortAttack");
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
-
     public void Waves()
     {
-        attacks.Wave(projectileSpeed, 6, WaveTypes.Quarter, 1, 0f);
+        attacks.Wave(projectileSpeed, 5, WaveTypes.Quarter, 1, 0f);
     }
 
     public void ShootComplete()
     {
         animator.Play("ChortIdle");
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
