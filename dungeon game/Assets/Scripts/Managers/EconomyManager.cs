@@ -10,6 +10,9 @@ public class EconomyManager : Singleton<EconomyManager>
     private int currentCoins = 0, currentKeys = 2;
     const string COIN_AMOUNT_TEXT = "CoinCount", KEY_AMOUNT_TEXT = "KeyCount";
 
+    [SerializeField]
+    private AudioClip coinPickupClip;
+
     private void Start()
     {
         if (keyText == null)
@@ -29,6 +32,8 @@ public class EconomyManager : Singleton<EconomyManager>
     public void UpdateCoins()
     {
         currentCoins += 1;
+        SoundFXManager.Instance.PlaySoundFXClip(coinPickupClip, transform, 1f);
+
         if (coinText == null)
         {
             coinText = GameObject.Find(COIN_AMOUNT_TEXT).GetComponent<TMP_Text>();
