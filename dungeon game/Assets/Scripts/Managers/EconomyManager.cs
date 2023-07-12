@@ -11,7 +11,7 @@ public class EconomyManager : Singleton<EconomyManager>
     const string COIN_AMOUNT_TEXT = "CoinCount", KEY_AMOUNT_TEXT = "KeyCount";
 
     [SerializeField]
-    private AudioClip coinPickupClip;
+    private AudioClip[] coinPickupClip;
 
     private void Start()
     {
@@ -32,7 +32,7 @@ public class EconomyManager : Singleton<EconomyManager>
     public void UpdateCoins()
     {
         currentCoins += 1;
-        SoundFXManager.Instance.PlaySoundFXClip(coinPickupClip, transform, 1f);
+        SoundFXManager.Instance.PlayRandomSoundFXClip(coinPickupClip, transform, 1f);
 
         if (coinText == null)
         {
