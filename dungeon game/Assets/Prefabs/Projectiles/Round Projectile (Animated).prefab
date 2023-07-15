@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5359356669366103347}
   - component: {fileID: 1941027254690886970}
   m_Layer: 6
-  m_Name: newprojectile
+  m_Name: Round Projectile (Animated)
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

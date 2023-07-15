@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7199341748822774627}
   - component: {fileID: 6747911865432881634}
   m_Layer: 7
-  m_Name: new
+  m_Name: Wyrmshooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

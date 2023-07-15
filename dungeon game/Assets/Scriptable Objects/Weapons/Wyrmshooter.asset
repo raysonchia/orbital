@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12d012e4ea1f44c1297837baad469648, type: 3}
-  m_Name: new
+  m_Name: Wyrmshooter
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: new
-  <Description>k__BackingField: 'test
-
-'
+  <Name>k__BackingField: Wyrmshooter
+  <Description>k__BackingField: The Wyrmshooter exudes an aura of ancient power,
+    resembling the scaled tail of a mythical wyrm. Its sleek lines and jagged edges
+    make it a sight to behold. As it fires twin streams of bullets at blinding speeds,
+    it harnesses the essence of these legendary creatures.
   <ItemImage>k__BackingField: {fileID: -584549166, guid: f97e7e1aa86d04ea8be6350ca34b9f1d, type: 3}
   weaponPrefab: {fileID: 6789921118810818464, guid: 0ed5831b972d54bdf8113223563b89d0, type: 3}
   projectilePrefab: {fileID: 3985182989077836345, guid: bf2b60cffa23e4d83b540740071b0d4d, type: 3}
