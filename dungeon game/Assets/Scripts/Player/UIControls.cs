@@ -17,6 +17,16 @@ public class UIControls : MonoBehaviour
         PauseManager.Instance.UnpauseGame();
     }
 
+    public void OpenAudioSettings()
+    {
+        SoundMixerManager.Instance.OpenAudioMenu();
+    }
+
+    public void CloseAudioSettings()
+    {
+        SoundMixerManager.Instance.CloseAudioMenu();
+    }
+
     public void QuitButton()
     {
         Application.Quit();

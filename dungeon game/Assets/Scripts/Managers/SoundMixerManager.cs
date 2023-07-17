@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SoundMixerManager : MonoBehaviour
+public class SoundMixerManager : Singleton<SoundMixerManager>
 {
     [SerializeField]
     private AudioMixer audioMixer;
+    private GameObject audioMenu;
+
+    private void Start()
+    {
+        audioMenu = GameObject.Find("AudioMenu");
+        audioMenu.SetActive(false);
+    }
+
 
     public void SetMasterVolume(float level)
     {
@@ -21,5 +29,15 @@ public class SoundMixerManager : MonoBehaviour
     public void SetMusicVolume(float level)
     {
         audioMixer.SetFloat("musicVolume", Mathf.Log10(level) * 20f);
+    }
+
+    public void OpenAudioMenu()
+    {
+        audioMenu.SetActive(true);
+    }
+
+    public void CloseAudioMenu()
+    {
+        audioMenu.SetActive(false);
     }
 }
