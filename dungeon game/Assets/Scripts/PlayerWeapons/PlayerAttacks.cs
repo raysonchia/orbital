@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerAttacks : MonoBehaviour
 {
     [SerializeField]
+    public AudioClip shootingClip;
+    [SerializeField]
     private int step = 10;
     private GameObject projectile;
     public WeaponScriptableObject weaponData;
@@ -28,6 +30,7 @@ public class PlayerAttacks : MonoBehaviour
             GameObject bullet = ObjectPool.SpawnObject(projectile, transform.position, transform.rotation);
 
             bullet.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.right * speed, ForceMode2D.Impulse);
+            SoundFXManager.Instance.PlaySoundFXClip(shootingClip, transform, 1f);
         }
     }
 
@@ -44,6 +47,7 @@ public class PlayerAttacks : MonoBehaviour
                 bullet.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.right * speed, ForceMode2D.Impulse);
                 gameObject.transform.Rotate(0f, 0f, step);
             }
+            SoundFXManager.Instance.PlaySoundFXClip(shootingClip, transform, 1f);
             gameObject.transform.localRotation = Quaternion.identity;
         }
     }

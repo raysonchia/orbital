@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febb5e556f3834ed6bdf90087df19381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingClip: {fileID: 8300000, guid: 1593b342c3d2143d28f6a84bc49f2b75, type: 3}
+  step: 10
   weaponData: {fileID: 11400000, guid: d1acb6cc8bbca472ab96a70788f1521d, type: 2}
 --- !u!1 &3584170659673086926
 GameObject:
@@ -147,7 +149,6 @@ MonoBehaviour:
   interactionRange: 3
   interact: {fileID: -4487522083104231864, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
   <weaponSO>k__BackingField: {fileID: 11400000, guid: d1acb6cc8bbca472ab96a70788f1521d, type: 2}
-  pickUpAnimation: {fileID: 95609721117030239, guid: 772670b480c1a4b8a80e2013070496f9, type: 3}
   weaponParent: {fileID: 0}
   animCurve:
     serializedVersion: 2
@@ -182,6 +183,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  pickUpAnimation: {fileID: 95609721117030239, guid: 772670b480c1a4b8a80e2013070496f9, type: 3}
 --- !u!114 &6743176312764497547
 MonoBehaviour:
   m_ObjectHideFlags: 0

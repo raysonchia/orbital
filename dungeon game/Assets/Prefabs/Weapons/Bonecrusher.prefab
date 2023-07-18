@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd59ad615498841efb7ae6c9de68bfb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingClip: {fileID: 8300000, guid: ba50ded0b92b84e069ec202dec087f62, type: 3}
   step: 10
   weaponData: {fileID: 11400000, guid: 12646c48f90a342da80d00570bb1cfea, type: 2}
   numOfProjectiles: 3
