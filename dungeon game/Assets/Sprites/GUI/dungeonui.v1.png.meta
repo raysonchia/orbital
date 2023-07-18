@@ -600,7 +600,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeonui.v1_23
+      name: dungeonui.v1_23_shop
       rect:
         serializedVersion: 2
         x: 61
@@ -609,7 +609,7 @@ TextureImporter:
         height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 2, z: 3, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2375,7 +2375,7 @@ TextureImporter:
       dungeonui.v1_20: -158057165
       dungeonui.v1_21: 590160913
       dungeonui.v1_22: 2144644113
-      dungeonui.v1_23: 190562323
+      dungeonui.v1_23_shop: 190562323
       dungeonui.v1_24: -1296152612
       dungeonui.v1_25: -1444614306
       dungeonui.v1_26: -1085335848
