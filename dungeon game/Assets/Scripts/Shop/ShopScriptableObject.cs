@@ -6,22 +6,18 @@ using UnityEngine;
 public class ShopScriptableObject : ScriptableObject
 {
     [SerializeField]
-    GameObject dropPrefab;
-    public GameObject DropPrefab { get => dropPrefab; private set => dropPrefab = value; }
+    GameObject itemPrefab;
+    public GameObject ItemPrefab { get => itemPrefab; private set => itemPrefab = value; }
 
     [SerializeField]
-    int dropChance;
-    public int DropChance { get => dropChance; set => dropChance = value; }
+    int minCost;
+    public int MinCost { get => minCost; private set => minCost = value; }
 
     [SerializeField]
-    int minAmount;
-    public int MinAmount { get => minAmount; private set => minAmount = value; }
+    int maxCost;
+    public int MaxCost { get => maxCost; private set => maxCost = value; }
 
     [SerializeField]
-    int maxAmount;
-    public int MaxAmount { get => maxAmount; private set => maxAmount = value; }
-
-    //[SerializeField]
-    //PickUpType pickUpType;
-    //public PickUpType PickUpType { get => PickUpType; private set => PickUpType = value; }
+    bool isWeapon;
+    public bool IsWeapon { get => isWeapon; private set => isWeapon = value; }
 }

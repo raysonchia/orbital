@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e63e5e321e294bcda55bc06f2058f1f, type: 3}
-  m_Name: new
+  m_Name: Wyrmshooter
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 6789921118810818464, guid: 0ed5831b972d54bdf8113223563b89d0, type: 3}
   dropChance: 100

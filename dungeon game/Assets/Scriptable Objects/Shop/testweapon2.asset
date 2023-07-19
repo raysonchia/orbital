@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e08e8fdbf6234909bd316610cefedfc, type: 3}
+  m_Name: testweapon2
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 6789921118810818464, guid: 0ed5831b972d54bdf8113223563b89d0, type: 3}
+  minCost: 40
+  maxCost: 50
+  isWeapon: 1

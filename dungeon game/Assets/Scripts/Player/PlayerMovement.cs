@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 pointerInput, movementInput, rotateInput;
     private WeaponParent weaponParent;
     public IWeapon shoot;
+    public bool isFireable = true;
     private Animate animate;
 
     [SerializeField]
@@ -47,7 +48,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void HoldShoot()
     {
-        shoot.ShootAction();
+        if (isFireable)
+        {
+            shoot.ShootAction();
+        }
     }
 
     // Start is called before the first frame update

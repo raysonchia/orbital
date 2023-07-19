@@ -169,7 +169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe27f53b96554440b9c723a33cdd2de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopPool: {fileID: 11400000, guid: 0a1d5b1c1d3e543158337cf23941abea, type: 2}
+  shopPool:
+  - {fileID: 11400000, guid: 0a1d5b1c1d3e543158337cf23941abea, type: 2}
+  - {fileID: 11400000, guid: 2e722cace2a45484fb873ae4973feb08, type: 2}
+  - {fileID: 11400000, guid: 070dc2bef76d842f1afdfa28f0066c61, type: 2}
+  - {fileID: 11400000, guid: b1616d4a62fe04fa8a4d098967b5dd70, type: 2}
 --- !u!1 &3893721133070389696
 GameObject:
   m_ObjectHideFlags: 0

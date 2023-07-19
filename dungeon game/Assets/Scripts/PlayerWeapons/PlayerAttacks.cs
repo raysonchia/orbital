@@ -22,7 +22,6 @@ public class PlayerAttacks : MonoBehaviour
 
     public void BasicShooting()
     {
-
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;

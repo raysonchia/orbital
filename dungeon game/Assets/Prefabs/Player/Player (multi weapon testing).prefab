@@ -617,9 +617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febb5e556f3834ed6bdf90087df19381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingClip: {fileID: 8300000, guid: 808fe6d8487014c4e9e26c2f20070e7a, type: 3}
   step: 10
   weaponData: {fileID: 11400000, guid: ccfd7781576a440f2a6b8e6e1dc76561, type: 2}
-  shootingClip: {fileID: 8300000, guid: 808fe6d8487014c4e9e26c2f20070e7a, type: 3}
 --- !u!4 &165089022403509497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4102708058895010281, guid: dcbab1f2484d74dc5a60392c7d71001a, type: 3}

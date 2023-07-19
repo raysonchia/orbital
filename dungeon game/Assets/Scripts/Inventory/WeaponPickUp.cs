@@ -20,7 +20,6 @@ public class WeaponPickUp : PickUpInteraction
     private DropAnimation dropAnimator;
     private bool interactable = false;
 
-
     private void Start()
     {
         weaponParent = GameObject.FindWithTag("Player")

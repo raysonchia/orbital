@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e08e8fdbf6234909bd316610cefedfc, type: 3}
-  m_Name: test
+  m_Name: Health
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 833615133226343576, guid: 5f68cb9bd9a204564b45fd5d1de3c414, type: 3}
-  dropChance: 0
-  minAmount: 30
-  maxAmount: 40
+  itemPrefab: {fileID: 833615133226343576, guid: 5f68cb9bd9a204564b45fd5d1de3c414, type: 3}
+  minCost: 15
+  maxCost: 25
+  isWeapon: 0
