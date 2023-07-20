@@ -30,6 +30,30 @@ public class WeaponPool : Singleton<WeaponPool>
         }
     }
 
+    public void RemoveFromPool(ShopScriptableObject dropToRemove)
+    {
+        foreach (DropsScriptableObject weapon in weaponPool)
+        {
+            if (GameObject.ReferenceEquals(weapon.DropPrefab, dropToRemove.ItemPrefab))
+            {
+                weaponPool.Remove(weapon);
+                break;
+            }
+        }
+    }
+
+    public bool IsInPool(ShopScriptableObject checkWeapon)
+    {
+        foreach (DropsScriptableObject weapon in weaponPool)
+        {
+            if (GameObject.ReferenceEquals(weapon.DropPrefab, checkWeapon.ItemPrefab))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void Reset()
     {
         

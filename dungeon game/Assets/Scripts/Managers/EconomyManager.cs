@@ -49,6 +49,18 @@ public class EconomyManager : Singleton<EconomyManager>
         coinText.text = currentCoins.ToString();
     }
 
+    public void AddCoins(int num)
+    {
+        currentCoins += num;
+
+        if (coinText == null)
+        {
+            coinText = GameObject.Find(COIN_AMOUNT_TEXT).GetComponent<TMP_Text>();
+        }
+
+        coinText.text = currentCoins.ToString();
+    }
+
     public bool UseCoins(int cost)
     {
         if (currentCoins < cost)

@@ -46,32 +46,34 @@ public class DropsSpawner : MonoBehaviour
 
     public void ChestDrops()
     {
-        //foreach (DropsScriptableObject drop in dropList)
-        //{
-        //    drop.DropChance = 100;
-        //}
-
-        //List<DropsScriptableObject> itemsToSpawn = GetDropsData();
-
-        //if (itemsToSpawn.Count > 0)
-        //{
-        //    //Debug.Log(itemsToSpawn.Count);
-        //    foreach (DropsScriptableObject drop in itemsToSpawn)
-        //    {
-        //        int randAmount = Random.Range(drop.MinAmount, drop.MaxAmount + 1);
-        //        Debug.Log("amount = " + randAmount);
-        //        for (int i = 0; i < randAmount; i++)
-        //        {
-        //            SpawnPrefab(drop.DropPrefab);
-        //        }
-        //    }
-        //}
-
         DropsScriptableObject weaponToDrop = WeaponPool.Instance.GetRandomWeapon();
 
         if (weaponToDrop != null)
         {
             SpawnPrefab(weaponToDrop.DropPrefab);
+        }
+        else  // no more weapons, drop coins
+        {
+            foreach (DropsScriptableObject drop in dropList)
+            {
+                drop.DropChance = 100;
+            }
+
+            List<DropsScriptableObject> itemsToSpawn = GetDropsData();
+
+            if (itemsToSpawn.Count > 0)
+            {
+                //Debug.Log(itemsToSpawn.Count);
+                foreach (DropsScriptableObject drop in itemsToSpawn)
+                {
+                    int randAmount = Random.Range(drop.MinAmount, drop.MaxAmount + 1);
+                    Debug.Log("amount = " + randAmount);
+                    for (int i = 0; i < randAmount; i++)
+                    {
+                        SpawnPrefab(drop.DropPrefab);
+                    }
+                }
+            }
         }
 
         //Debug.Log("inven: ");

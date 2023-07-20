@@ -9,6 +9,7 @@ public class UIShop : MonoBehaviour
 {
     private Transform container;
     private Transform shopItemTemplate;
+    private Transform[] currentShopTemplates = new Transform[4];
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class UIShop : MonoBehaviour
         int itemCost = Random.Range(shopItem.MinCost, shopItem.MaxCost + 1);
 
         Transform shopItemTransform = Instantiate(shopItemTemplate, container);
+        currentShopTemplates[positionIndex] = shopItemTransform;
         shopItemTransform.gameObject.SetActive(true);
         RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
         float shopItemHeight = 200f;
@@ -50,20 +52,29 @@ public class UIShop : MonoBehaviour
 
         shopItemRectTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
 
-        shopItemTransform.GetComponent<Button>().onClick.AddListener(() => TryBuyItem(shopItem, itemCost));
+        shopItemTransform.GetComponent<Button>().onClick.AddListener(() => TryBuyItem(shopItem, itemCost, positionIndex));
     }
 
-    private void TryBuyItem(ShopScriptableObject shopItem, int cost)
+    private void TryBuyItem(ShopScriptableObject shopItem, int cost, int positionIndex)
     {
         if (EconomyManager.Instance.UseCoins(cost))
         {
             // weapon
             if (shopItem.IsWeapon)
             {
-                ObjectPool.SpawnObject(
+                if (WeaponPool.Instance.IsInPool(shopItem))
+                {
+                    ObjectPool.SpawnObject(
                     shopItem.ItemPrefab,
                     GameObject.Find("Shopkeeper").transform.position,
                     Quaternion.identity);
+                    WeaponPool.Instance.RemoveFromPool(shopItem);
+                }
+                else  // im lazy to restructure this ill just refund
+                {
+                    EconomyManager.Instance.AddCoins(cost);
+                    Tooltip.Instance.ShowToolTip("You already have this item!");
+                }
             }
             else
             {
@@ -81,6 +92,10 @@ public class UIShop : MonoBehaviour
                         break;
                 }
             }
+        }
+        else
+        {
+            Tooltip.Instance.ShowToolTip("Insufficient coins!");
         }
     }
 

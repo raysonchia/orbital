@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PickUpType
+{
+    Coin,
+    Health,
+    Key,
+    Weapon
+}
+
 public class PickUp : MonoBehaviour
 {
-    private enum PickUpType
-    {
-        Coin,
-        Health,
-        Key
-    }
-
     [SerializeField]
-    private PickUpType pickUpType;
+    public PickUpType pickUpType;
     [SerializeField]
     private float pickUpDistance = 5f;
     [SerializeField]
