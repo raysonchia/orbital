@@ -230,6 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 545832733314238333}
   - component: {fileID: 6210820579658054969}
+  - component: {fileID: 1037772160986680275}
   m_Layer: 0
   m_Name: Music Manager
   m_TagString: Untagged
@@ -348,6 +349,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1037772160986680275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409914251553313215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf344b01ad5c40709a12de5dddbfe20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultDungeon: {fileID: 8300000, guid: 7f32711e8ebd642f2aea02f8f10261f3, type: 3}
+  shopMusic: {fileID: 8300000, guid: 00019328274d64d5f8dce28d5b1ee9cd, type: 3}
 --- !u!1 &7198828730427307646
 GameObject:
   m_ObjectHideFlags: 0

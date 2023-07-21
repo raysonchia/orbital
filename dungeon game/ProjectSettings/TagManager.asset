@@ -23,7 +23,7 @@ TagManager:
   - EnemyWallCollider
   - Obstacle
   - Corpse
-  - Door
+  - OnlyCollidesWithPlayer
   - Drops
   - SpawnedDrops
   - 
