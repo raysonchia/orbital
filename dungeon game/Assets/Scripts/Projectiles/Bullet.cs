@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float damage;
+    protected float damage;
     public float maxDistance = 20;
 
     public Vector2 startPosition;

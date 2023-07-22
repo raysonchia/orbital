@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e08e8fdbf6234909bd316610cefedfc, type: 3}
-  m_Name: Key
+  m_Name: Wyrm
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 15764227408741023, guid: ee5c7ce1224f24517a922b30f0fd6954, type: 3}
-  minCost: 20
-  maxCost: 30
-  isWeapon: 0
+  itemPrefab: {fileID: 6789921118810818464, guid: 0ed5831b972d54bdf8113223563b89d0, type: 3}
+  minCost: 40
+  maxCost: 50
+  isWeapon: 1
