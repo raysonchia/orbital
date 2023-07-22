@@ -26,9 +26,25 @@ public class UIShop : MonoBehaviour
     public void InitialiseShop()
     {
         List<ShopScriptableObject> items = ShopPool.Instance.GetShopScriptableObjects();
-        for (int i = 0; i < 4; i++)
+
+        if (items.Count >= 4)
         {
-            CreateItemButton(items[i], i);
+            for (int i = 0; i < 4; i++)
+            {
+                if (items[i] != null)
+                {
+                    CreateItemButton(items[i], i);
+                }
+            }
+        } else
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i] != null)
+                {
+                    CreateItemButton(items[i], i);
+                }
+            }
         }
 
         Hide();

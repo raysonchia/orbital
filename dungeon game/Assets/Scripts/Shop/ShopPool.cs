@@ -17,9 +17,20 @@ public class ShopPool : Singleton<ShopPool>
         List<ShopScriptableObject> temp = new List<ShopScriptableObject>(this.shopPool);
         List<ShopScriptableObject> itemsToAdd = new List<ShopScriptableObject>();
 
-        if (temp.Count > 0)
+        int count = temp.Count;
+
+        if (count >= 4)
         {
             for (int i = 0; i < 4; i++)
+            {
+                int rand = Random.Range(0, temp.Count);
+                itemsToAdd.Add(temp[rand]);
+                temp.RemoveAt(rand);
+            }
+        }
+        else if (count < 4)
+        {
+            for (int i = 0; i < count; i++)
             {
                 int rand = Random.Range(0, temp.Count);
                 itemsToAdd.Add(temp[rand]);

@@ -125,6 +125,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f9aa825412504d3ca5cb720c041fc46, type: 2}
   - {fileID: 11400000, guid: ac8ebd94dc3f542efb981cf91a28d768, type: 2}
   - {fileID: 11400000, guid: 8c2f7af8329064286a816f6e1ef9451c, type: 2}
+  - {fileID: 11400000, guid: ed86abad77292438c9b2fb1d238cdadb, type: 2}
 --- !u!1 &2814641867766291127
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,8 +173,10 @@ MonoBehaviour:
   shopPool:
   - {fileID: 11400000, guid: 0a1d5b1c1d3e543158337cf23941abea, type: 2}
   - {fileID: 11400000, guid: 2e722cace2a45484fb873ae4973feb08, type: 2}
-  - {fileID: 11400000, guid: 070dc2bef76d842f1afdfa28f0066c61, type: 2}
+  - {fileID: 11400000, guid: 82631532d70a648c197700a148d5aecb, type: 2}
+  - {fileID: 11400000, guid: 80005bfa1275f46af8b44529b41f082d, type: 2}
   - {fileID: 11400000, guid: b1616d4a62fe04fa8a4d098967b5dd70, type: 2}
+  - {fileID: 11400000, guid: 070dc2bef76d842f1afdfa28f0066c61, type: 2}
 --- !u!1 &3893721133070389696
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,8 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf344b01ad5c40709a12de5dddbfe20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDungeon: {fileID: 8300000, guid: 7f32711e8ebd642f2aea02f8f10261f3, type: 3}
-  shopMusic: {fileID: 8300000, guid: 00019328274d64d5f8dce28d5b1ee9cd, type: 3}
+  transitionTime: 1.25
 --- !u!1 &7198828730427307646
 GameObject:
   m_ObjectHideFlags: 0
