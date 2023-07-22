@@ -13,6 +13,9 @@ public class Bullet : MonoBehaviour
     public WeaponScriptableObject weaponData;
     public bool isEnemyProjectile;
 
+    //[SerializeField]
+    //private GameObject impactEffect;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,7 +34,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void DisableObject()
+    protected void DisableObject()
     {
         rb.velocity = Vector2.zero;
         ObjectPool.ReturnObjectToPool(gameObject);
@@ -60,5 +63,16 @@ public class Bullet : MonoBehaviour
 
             DisableObject();
         }
+
+        //if (collision.gameObject.CompareTag("Wall"))
+        //{
+        //    ContactPoint2D[] contacts = new ContactPoint2D[1];
+        //    collision.GetContacts(contacts);
+
+        //    Quaternion rotation = Quaternion.LookRotation(Vector3.forward, contacts[0].normal * new Vector3(0, 0, -1));
+
+        //    Instantiate(impactEffect, transform.position, rotation);
+        //    Debug.Log("hit wall");
+        //}
     }
 }

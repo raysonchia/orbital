@@ -136,17 +136,17 @@ public class EnemyAttacks : MonoBehaviour
         }
     }
 
-    public void DoubleSpiral(float projectileSpeed, float duration)
+    public void DoubleSpiral(float projectileSpeed, float duration, int pos = 0)
     {
-        StartCoroutine(DoubleSpiralRoutine(duration, projectileSpeed, 0.1f));
+        StartCoroutine(DoubleSpiralRoutine(duration, projectileSpeed, 0.1f, pos));
     }
 
-    public void DoubleSpiral(float projectileSpeed, float duration, float delay)
-    {
-        StartCoroutine(DoubleSpiralRoutine(duration, projectileSpeed, delay));
-    }
+    //public void DoubleSpiral(float projectileSpeed, float duration, float delay)
+    //{
+    //    StartCoroutine(DoubleSpiralRoutine(duration, projectileSpeed, delay));
+    //}
 
-    private IEnumerator DoubleSpiralRoutine(float duration, float projectileSpeed, float delay)
+    private IEnumerator DoubleSpiralRoutine(float duration, float projectileSpeed, float delay, int pos)
     {
         float angle = 0f;
 
@@ -161,7 +161,21 @@ public class EnemyAttacks : MonoBehaviour
                 Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
                 Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 
-                GameObject bullet = ObjectPool.SpawnObject(Projectile, transform.position, Quaternion.identity);
+                GameObject bullet;
+                if (pos == 0)
+                {
+                    bullet = ObjectPool.SpawnObject(Projectile, transform.position, Quaternion.identity);
+                    bullet.GetComponent<Rigidbody2D>().velocity = bulDir * projectileSpeed;
+                }
+                else
+                {
+                    // shoot at barrel instead of center
+                    bullet = ObjectPool.SpawnObject(
+                        Projectile,
+                        gameObject.transform.GetChild(0).gameObject.transform.position,
+                        Quaternion.identity);
+                }
+
                 bullet.GetComponent<Rigidbody2D>().velocity = bulDir * projectileSpeed;
 
                 angle += 10f;
