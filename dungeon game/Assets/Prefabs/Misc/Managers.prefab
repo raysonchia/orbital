@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: faf9bff40bf004a83badf012fc057882, type: 2}
-  audioMenu: {fileID: 0}
 --- !u!1 &1727323756250955055
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +126,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac8ebd94dc3f542efb981cf91a28d768, type: 2}
   - {fileID: 11400000, guid: 8c2f7af8329064286a816f6e1ef9451c, type: 2}
   - {fileID: 11400000, guid: ed86abad77292438c9b2fb1d238cdadb, type: 2}
+  completeWeaponPool: []
 --- !u!1 &2814641867766291127
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +178,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 80005bfa1275f46af8b44529b41f082d, type: 2}
   - {fileID: 11400000, guid: b1616d4a62fe04fa8a4d098967b5dd70, type: 2}
   - {fileID: 11400000, guid: 070dc2bef76d842f1afdfa28f0066c61, type: 2}
+  completeShopPool: []
 --- !u!1 &3893721133070389696
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseInput: {fileID: -3437023645523720288, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
-  pauseMenu: {fileID: 0}
   isPaused: 0
 --- !u!1 &5409914251553313215
 GameObject:
@@ -465,6 +465,7 @@ MonoBehaviour:
   coinPickupClip:
   - {fileID: 8300000, guid: 837e6feb40836416999f7d8b0865bb68, type: 3}
   - {fileID: 8300000, guid: ea84d6a4cfd484998a40b38f58214304, type: 3}
+  keyPickupClip: {fileID: 8300000, guid: 308e722aaa58c4002b3ee014e6032d6b, type: 3}
 --- !u!1 &8572340001202472091
 GameObject:
   m_ObjectHideFlags: 0

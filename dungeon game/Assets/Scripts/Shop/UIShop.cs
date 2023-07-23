@@ -10,6 +10,8 @@ public class UIShop : MonoBehaviour
     private Transform container;
     private Transform shopItemTemplate;
     private Transform[] currentShopTemplates = new Transform[4];
+    [SerializeField]
+    private AudioClip buyWeaponClip;
 
     private void Awake()
     {
@@ -85,6 +87,7 @@ public class UIShop : MonoBehaviour
                     GameObject.Find("Shopkeeper").transform.position,
                     Quaternion.identity);
                     WeaponPool.Instance.RemoveFromPool(shopItem);
+                    SoundFXManager.Instance.PlaySoundFXClip(buyWeaponClip, transform, 1f);
                 }
                 else  // im lazy to restructure this ill just refund
                 {

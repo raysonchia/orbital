@@ -13,6 +13,9 @@ public class EconomyManager : Singleton<EconomyManager>
     [SerializeField]
     private AudioClip[] coinPickupClip;
 
+    [SerializeField]
+    private AudioClip keyPickupClip;
+
     private void Start()
     {
         if (keyText == null)
@@ -81,6 +84,8 @@ public class EconomyManager : Singleton<EconomyManager>
     public void UpdateKeys()
     {
         currentKeys += 1;
+        SoundFXManager.Instance.PlaySoundFXClip(keyPickupClip, transform, 1f);
+
         if (keyText == null)
         {
             keyText = GameObject.Find(KEY_AMOUNT_TEXT).GetComponent<TMP_Text>();

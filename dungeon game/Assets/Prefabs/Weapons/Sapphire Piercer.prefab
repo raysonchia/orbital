@@ -195,6 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febb5e556f3834ed6bdf90087df19381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingClip: {fileID: 8300000, guid: 1593b342c3d2143d28f6a84bc49f2b75, type: 3}
+  shootingClip: {fileID: 8300000, guid: 793d1906ff4d042ba8eca0295c517e6f, type: 3}
   step: 10
   weaponData: {fileID: 11400000, guid: d6a13580efab04f009ed9b97aff316b0, type: 2}
