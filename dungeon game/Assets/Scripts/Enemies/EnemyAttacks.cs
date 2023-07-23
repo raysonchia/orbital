@@ -152,7 +152,6 @@ public class EnemyAttacks : MonoBehaviour
 
         for (float i = 0; i < duration; i += delay)
         {
-            Debug.Log(i);
             for (float j = 0; j < 2; j++)
             {
                 float bulDirX = transform.position.x + Mathf.Sin((angle + 180f * j) * Mathf.PI / 180f);

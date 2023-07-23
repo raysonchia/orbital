@@ -11,10 +11,8 @@ public class SoundMixerManager : Singleton<SoundMixerManager>
 
     private void Start()
     {
-        audioMenu = GameObject.Find("AudioMenu");
-        audioMenu.SetActive(false);
+        Hide();
     }
-
 
     public void SetMasterVolume(float level)
     {
@@ -38,6 +36,15 @@ public class SoundMixerManager : Singleton<SoundMixerManager>
 
     public void CloseAudioMenu()
     {
+        audioMenu.SetActive(false);
+    }
+
+    public void Hide()
+    {
+        if (audioMenu == null)
+        {
+            audioMenu = GameObject.FindWithTag("Audio");
+        }
         audioMenu.SetActive(false);
     }
 }

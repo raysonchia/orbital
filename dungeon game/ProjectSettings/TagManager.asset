@@ -8,6 +8,9 @@ TagManager:
   - PlayerProjectile
   - Wall
   - BossChest
+  - Pause
+  - Audio
+  - Restart
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Image[] hearts;
     [SerializeField]
     public Sprite fullHeart, halfHeart, emptyHeart;
-    public GameObject restartScreen;
+    private GameObject restartScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         animator = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
         defaultMat = playerSprite.material;
-        restartScreen.SetActive(false);
+        SetRestart();
     }
 
     public void InitialiseHealth(int healthValue)
@@ -89,11 +89,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
             animator.SetTrigger("isDead");
-            EconomyManager.Instance.ResetInDungeonEconomy();
-            InventoryController.Instance.ResetInventory();
             Debug.Log("dead");
             CancelInvoke();
             StartCoroutine(GameOver());
+            EconomyManager.Instance.ResetInDungeonEconomy();
+            InventoryController.Instance.ResetInventory();
+
         }
         
     }
@@ -110,6 +111,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
         //gameObject.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(2);
         restartScreen.SetActive(true);
+        Debug.Log("restart is ");
+        Debug.Log(restartScreen);
         //SceneManager.LoadScene("") implement death scene later
     }
 
@@ -144,6 +147,15 @@ public class PlayerHealth : Singleton<PlayerHealth>
                 return fullHeart;
             default:
                 return emptyHeart;
+        }
+    }
+
+    public void SetRestart()
+    {
+        if (restartScreen == null)
+        {
+            restartScreen = GameObject.FindWithTag("Restart");
+            restartScreen.SetActive(false);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Inventory.Model;
 using UnityEngine;
 
@@ -7,12 +8,13 @@ public class WeaponPool : Singleton<WeaponPool>
 {
     [SerializeField]
     public List<DropsScriptableObject> weaponPool;
-    private List<DropsScriptableObject> completeWeaponPool;
+    public  List<DropsScriptableObject> completeWeaponPool;
 
     protected override void Awake()
     {
         base.Awake();
-        this.completeWeaponPool = new List<DropsScriptableObject> (this.weaponPool);
+
+        completeWeaponPool = new List<DropsScriptableObject>(weaponPool);
     }
 
     public DropsScriptableObject GetRandomWeapon()
@@ -56,6 +58,7 @@ public class WeaponPool : Singleton<WeaponPool>
 
     public void Reset()
     {
-        
+        weaponPool = new List<DropsScriptableObject>(completeWeaponPool);
     }
 }
+

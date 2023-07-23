@@ -6,11 +6,14 @@ public class ShopPool : Singleton<ShopPool>
 {
     [SerializeField]
     private List<ShopScriptableObject> shopPool;
+    public List<ShopScriptableObject> completeShopPool;
 
     protected override void Awake()
     {
         base.Awake();
+        completeShopPool = new List<ShopScriptableObject>(shopPool);
     }
+
 
     public List<ShopScriptableObject> GetShopScriptableObjects()
     {
@@ -45,8 +48,20 @@ public class ShopPool : Singleton<ShopPool>
         return itemsToAdd;
     }
 
-    public void Reset()
-    {
-        
-    }
+    //public void RemoveFromPool(DropsScriptableObject dropToRemove)
+    //{
+    //    foreach (ShopScriptableObject shopItem in shopPool)
+    //    {
+    //        if (GameObject.ReferenceEquals(shopItem.ItemPrefab, dropToRemove.DropPrefab))
+    //        {
+    //            shopPool.Remove(shopItem);
+    //            break;
+    //        }
+    //    }
+    //}
+
+    //public void Reset()
+    //{
+    //    shopPool = new List<ShopScriptableObject>(completeShopPool);
+    //}
 }

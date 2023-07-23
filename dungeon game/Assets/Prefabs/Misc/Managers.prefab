@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: faf9bff40bf004a83badf012fc057882, type: 2}
+  audioMenu: {fileID: 0}
 --- !u!1 &1727323756250955055
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseInput: {fileID: -3437023645523720288, guid: 2a2fd79bc05954bec9bcf4ee223c084a, type: 3}
+  pauseMenu: {fileID: 0}
   isPaused: 0
 --- !u!1 &5409914251553313215
 GameObject:

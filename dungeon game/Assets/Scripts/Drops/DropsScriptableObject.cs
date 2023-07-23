@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DropsScriptableObject", menuName = "ScriptableObjects/Drops")]
+[System.Serializable]
 public class DropsScriptableObject : ScriptableObject
 {
     [SerializeField]
@@ -20,8 +21,4 @@ public class DropsScriptableObject : ScriptableObject
     [SerializeField]
     int maxAmount;
     public int MaxAmount { get => maxAmount; private set => maxAmount = value; }
-
-    //[SerializeField]
-    //PickUpType pickUpType;
-    //public PickUpType PickUpType { get => PickUpType; private set => PickUpType = value; }
 }

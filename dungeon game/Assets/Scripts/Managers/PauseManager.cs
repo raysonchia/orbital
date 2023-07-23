@@ -13,8 +13,7 @@ public class PauseManager : Singleton<PauseManager>
 
     private void Start()
     {
-        pauseMenu = GameObject.Find("PauseMenu");
-        pauseMenu.SetActive(false);
+        Hide();
     }
 
     private void Update()
@@ -44,5 +43,14 @@ public class PauseManager : Singleton<PauseManager>
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void Hide()
+    {
+        if (pauseMenu == null)
+        {
+            pauseMenu = GameObject.FindWithTag("Pause");
+        }
+        pauseMenu.SetActive(false);
     }
 }

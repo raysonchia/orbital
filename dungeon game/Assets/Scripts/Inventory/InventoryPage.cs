@@ -35,6 +35,9 @@ namespace Inventory.UI
 
         public void IntialiseInventoryUI(int inventorySize)
         {
+            //itemPrefab = FindObjectOfType<InventoryItem>();
+            //listOfUIItems = new List<InventoryItem>();
+
             for (int i = 0; i < inventorySize; i++)
             {
                 InventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);

@@ -8,7 +8,7 @@ public class ShopTriggerCollider : MonoBehaviour
 
     private void Awake()
     {
-        uiShop = GameObject.Find("UIShop").GetComponent<UIShop>();
+        uiShop = GameObject.FindWithTag("UIShop").GetComponent<UIShop>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
