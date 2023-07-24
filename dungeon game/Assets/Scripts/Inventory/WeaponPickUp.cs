@@ -22,11 +22,7 @@ public class WeaponPickUp : PickUpInteraction
 
     private void Start()
     {
-        weaponParent = GameObject.FindWithTag("Player")
-            .transform
-            .GetChild(0)
-            .GetChild(0)
-            .gameObject;
+        weaponParent = FindObjectOfType<PlayerMovement>().transform.GetChild(0).gameObject;
 
         activeWeapon = GameObject.Find("WeaponImage").GetComponent<Image>();
         sr = GetComponent<SpriteRenderer>();
