@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class EconomyManager : Singleton<EconomyManager>
 {
     private TMP_Text coinText, keyText;
-    private int currentCoins = 100, currentKeys = 2;
+    private int currentCoins = 0, currentKeys = 2;
     const string COIN_AMOUNT_TEXT = "CoinCount", KEY_AMOUNT_TEXT = "KeyCount";
 
     [SerializeField]

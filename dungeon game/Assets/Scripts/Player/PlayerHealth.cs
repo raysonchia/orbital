@@ -24,6 +24,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Image[] hearts;
     [SerializeField]
     public Sprite fullHeart, halfHeart, emptyHeart;
+    [SerializeField]
+    private AudioClip healClip;
     private GameObject restartScreen;
 
     // Start is called before the first frame update
@@ -59,6 +61,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
             } else
             {
                 Debug.Log("healing");
+                SoundFXManager.Instance.PlaySoundFXClip(healClip, transform, 1f);
                 UpdateHealthUI();
             }
         }

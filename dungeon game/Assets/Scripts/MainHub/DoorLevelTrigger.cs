@@ -11,7 +11,7 @@ public class DoorLevelTrigger : MonoBehaviour
     {
         //SceneManager.LoadScene("DungeonSample");
         //SceneManager.LoadScene("FirstScene_1");
-        var op = SceneManager.LoadSceneAsync("DungeonSample");
+        var op = SceneManager.LoadSceneAsync("Floor 2");
         op.completed += (x) => {
             PauseManager.Instance.Hide();
             SoundMixerManager.Instance.Hide();

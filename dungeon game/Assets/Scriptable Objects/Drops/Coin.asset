@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 833615133226343576, guid: 254b79426a1944d78896bdf4006570f3, type: 3}
-  dropChance: 30
+  dropChance: 40
   minAmount: 1
-  maxAmount: 3
+  maxAmount: 4

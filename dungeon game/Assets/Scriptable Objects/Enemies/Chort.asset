@@ -15,5 +15,5 @@ MonoBehaviour:
   moveSpeed: 1.6
   maxHealth: 36
   attackRate: 2.25
-  projectileSpeed: 6
-  range: 7
+  projectileSpeed: 4
+  range: 6

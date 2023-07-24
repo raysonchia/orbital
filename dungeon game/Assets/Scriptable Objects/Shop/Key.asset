@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 15764227408741023, guid: ee5c7ce1224f24517a922b30f0fd6954, type: 3}
   minCost: 20
-  maxCost: 30
+  maxCost: 25
   isWeapon: 0

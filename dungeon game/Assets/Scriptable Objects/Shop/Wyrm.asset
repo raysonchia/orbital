@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wyrm
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6789921118810818464, guid: 0ed5831b972d54bdf8113223563b89d0, type: 3}
-  minCost: 40
-  maxCost: 50
+  minCost: 30
+  maxCost: 35
   isWeapon: 1

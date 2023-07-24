@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Radiant
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 3584170659673086926, guid: d5934465f93f34a80bbb6b63cb887cb6, type: 3}
-  minCost: 30
-  maxCost: 40
+  minCost: 25
+  maxCost: 30
   isWeapon: 1

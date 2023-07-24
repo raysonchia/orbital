@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sapphire
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 3795245752701738798, guid: 89ee00cf922464686a1308f700edddfb, type: 3}
-  minCost: 30
-  maxCost: 40
+  minCost: 25
+  maxCost: 30
   isWeapon: 1
