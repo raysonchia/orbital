@@ -8,6 +8,7 @@ public class UIControls : MonoBehaviour
 {
     public void RestartButton()
     {
+        Destroy(PlayerMovement.Instance.gameObject.GetComponentInParent<PlayerSingleton>().gameObject);
         PauseManager.Instance.UnpauseGame();
         SceneManager.LoadScene("Base");
     }

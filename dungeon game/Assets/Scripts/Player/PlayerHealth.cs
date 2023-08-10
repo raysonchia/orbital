@@ -96,7 +96,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
             CancelInvoke();
             StartCoroutine(GameOver());
             EconomyManager.Instance.ResetInDungeonEconomy();
-            InventoryController.Instance.ResetInventory();
+            //InventoryController.Instance.ResetInventory();
 
         }
         
@@ -121,6 +121,13 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     public void UpdateHealthUI()
     {
+        GameObject heartsArray = GameObject.FindWithTag("Hearts");
+
+        for (int i = 0; i < 3; i++)
+        {
+            hearts[i] = heartsArray.transform.GetChild(i).gameObject.GetComponent<Image>();
+        }
+
         for (int i = 0; i < hearts.Length; i++)
         {
             int heartStatusRemainder = (int) Mathf.Clamp(currentHealth - (i * 2), 0, 2);

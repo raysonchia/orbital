@@ -18,7 +18,7 @@ public class CacodaemonMovement : SimpleEnemyMovement
     public bool rapidFire;
 
     [SerializeField]
-    private GameObject bossHealth;
+    private GameObject bossHealth, winUI;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class CacodaemonMovement : SimpleEnemyMovement
         attacks = GetComponent<EnemyAttacks>();
         animator = GetComponent<Animator>();
         bossHealth.SetActive(false);
+        winUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,6 +49,7 @@ public class CacodaemonMovement : SimpleEnemyMovement
             attacks.StopAllCoroutines(); // stop attacks
             StopAllCoroutines();
             moveSpeed = 0f;
+            winUI.SetActive(true);
             gameObject.layer = LayerMask.NameToLayer("Corpse");
             GetComponent<SpriteRenderer>().sortingLayerName = "Corpse";
             this.enabled = false;

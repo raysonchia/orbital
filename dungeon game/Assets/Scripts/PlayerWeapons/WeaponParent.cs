@@ -17,7 +17,6 @@ public class WeaponParent : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
-        activeWeapon = GameObject.Find("WeaponImage").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -74,30 +73,37 @@ public class WeaponParent : MonoBehaviour
             || Input.GetKeyDown(KeyCode.Alpha1))
         {
             // prev weapon
-            CheckWeaponSwitchable();
             Debug.Log("scroll up");
-            DisableCurrentWeapon();
 
-            string nextWeapon = InventorySystem.Instance.GetPreviousWeapon();
-            GameObject weaponToActive = FindInActiveObjectByName(nextWeapon);
-            SwitchWeapon(weaponToActive);
+            if (IsWeaponSwitchable())
+            {
+                DisableCurrentWeapon();
+                string nextWeapon = InventorySystem.Instance.GetPreviousWeapon();
+                GameObject weaponToActive = FindInActiveObjectByName(nextWeapon);
+                SwitchWeapon(weaponToActive);
+            }
+
         }
         else if
             (mouseScroll.action.ReadValue<float>() <= -1f
             || Input.GetKeyDown(KeyCode.Alpha2))
         {
-            CheckWeaponSwitchable();
             Debug.Log("scroll down");
-            DisableCurrentWeapon();
 
-            string nextWeapon = InventorySystem.Instance.GetNextWeapon();
-            GameObject weaponToActive = FindInActiveObjectByName(nextWeapon);
-            SwitchWeapon(weaponToActive);
+            if (IsWeaponSwitchable())
+            {
+                DisableCurrentWeapon();
+                string nextWeapon = InventorySystem.Instance.GetNextWeapon();
+                GameObject weaponToActive = FindInActiveObjectByName(nextWeapon);
+                SwitchWeapon(weaponToActive);
+            }
         }
     }
 
     private void SwitchWeapon(GameObject weaponToActive)
     {
+        activeWeapon = GameObject.Find("WeaponImage").GetComponent<Image>();
+        Debug.Log(weaponToActive);
         weaponToActive.SetActive(true);
         player.shoot = weaponToActive.GetComponentInChildren<IWeapon>();
         activeWeapon.sprite = weaponToActive.GetComponent<SpriteRenderer>().sprite;
@@ -149,11 +155,14 @@ public class WeaponParent : MonoBehaviour
         return null;
     }
 
-    private void CheckWeaponSwitchable()
+    private bool IsWeaponSwitchable()
     {
         if (InventorySystem.Instance.GetInventorySize() <= 1)
         {
-            return;
+            return false;
+        } else
+        {
+            return true;
         }
     }
 }

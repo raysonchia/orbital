@@ -18,6 +18,11 @@ public class EconomyManager : Singleton<EconomyManager>
 
     private void Start()
     {
+        Initialise();
+    }
+
+    public void Initialise()
+    {
         if (keyText == null)
         {
             keyText = GameObject.Find(KEY_AMOUNT_TEXT).GetComponent<TMP_Text>();

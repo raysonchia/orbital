@@ -9,7 +9,6 @@ namespace Inventory
 {
     public class InventoryController : Singleton<InventoryController>
     {
-        [SerializeField]
         private InventoryPage inventoryUI;
 
         [SerializeField]
@@ -17,15 +16,15 @@ namespace Inventory
 
         public List<InventoryItemObject> initalItems = new List<InventoryItemObject>();
 
-        private void Start()
-        {
-            ResetInventory();
-        }
-
         public void ResetInventory()
         {
             PrepareUI();
             PrepareInventoryData();
+        }
+
+        public void ContinueInventory(List<InventoryItemObject> currentItems)
+        {
+            ContinueInventoryData(currentItems);
         }
 
         public void PrepareInventoryData()
@@ -39,6 +38,22 @@ namespace Inventory
                     continue;
                 }
                 inventoryData.AddItem(item);
+                
+            }
+        }
+
+        public void ContinueInventoryData(List<InventoryItemObject> currentItems)
+        {
+            inventoryData.Initialise();
+            inventoryData.OnInventoryUpdated += UpdateInventoryUI;
+            foreach (InventoryItemObject item in currentItems)
+            {
+                if (item.IsEmpty())
+                {
+                    continue;
+                }
+                inventoryData.AddItem(item);
+
             }
         }
 
@@ -53,6 +68,9 @@ namespace Inventory
 
         private void PrepareUI()
         {
+            inventoryUI = FindObjectOfType<InventoryPage>();
+            inventoryUI.Hide();
+
             inventoryUI.IntialiseInventoryUI(inventoryData.Size);
 
             this.inventoryUI.OnDescriptionRequested += HandleDescriptionRequest;
@@ -98,7 +116,7 @@ namespace Inventory
         {
             if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I))
             {
-                inventoryUI = GameObject.Find("InGameCanvas").GetComponentInChildren<InventoryPage>(true);
+                inventoryUI = FindObjectOfType<InventoryPage>(true);
                 if (inventoryUI.isActiveAndEnabled == false)
                 {
                     inventoryUI.Show();

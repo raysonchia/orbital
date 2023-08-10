@@ -11,6 +11,9 @@ TagManager:
   - Pause
   - Audio
   - Restart
+  - UIShop
+  - Hearts
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

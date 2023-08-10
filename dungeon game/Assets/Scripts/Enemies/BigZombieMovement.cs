@@ -59,6 +59,19 @@ public class BigZombieMovement : SimpleEnemyMovement
         }
     }
 
+    protected override void DisableOnDeath()
+    {
+        health = GetComponent<EnemyReceiveDamage>().health;
+        if (health <= 0)
+        {
+            StopAllCoroutines();
+            moveSpeed = 0f;
+            gameObject.layer = LayerMask.NameToLayer("Corpse");
+            GetComponent<SpriteRenderer>().sortingLayerName = "Corpse";
+            this.enabled = false;
+        }
+    }
+
     private IEnumerator DelayAttack()
     {
         yield return new WaitForSeconds(attackDelay);

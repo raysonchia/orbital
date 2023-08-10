@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Singleton<PlayerMovement>
 {
     private Rigidbody2D rb;
     private Vector2 pointerInput, movementInput, rotateInput;
@@ -55,8 +55,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Debug.Log("Scene number:" + SceneManager.GetActiveScene().buildIndex);
         rb = GetComponent<Rigidbody2D>();
         animate = GetComponentInParent<Animate>();

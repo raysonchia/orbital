@@ -156,6 +156,7 @@ public class SimpleEnemyMovement : MonoBehaviour
             {
                 GetComponent<DropsSpawner>().SpawnDrops();
             }
+            moveSpeed = 0f;
             // disable movement
             this.enabled = false;
             // disable collision

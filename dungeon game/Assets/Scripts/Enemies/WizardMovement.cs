@@ -45,6 +45,7 @@ public class WizardMovement : SimpleEnemyMovement
         {
             attacks.StopAllCoroutines(); // stop attacks
             StopAllCoroutines();
+            moveSpeed = 0f;
             gameObject.layer = LayerMask.NameToLayer("Corpse");
             GetComponent<SpriteRenderer>().sortingLayerName = "Corpse";
             BossDropSpawner.Instance.SpawnDrop();

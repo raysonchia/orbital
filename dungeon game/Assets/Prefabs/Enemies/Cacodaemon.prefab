@@ -394,6 +394,7 @@ MonoBehaviour:
   range: 0
   rapidFire: 0
   bossHealth: {fileID: 8616155643429885949}
+  winUI: {fileID: 6711142962097109642, guid: 526f1d9bc5e2946898ddf948ecfa3631, type: 3}
 --- !u!1 &1086806527982054368
 GameObject:
   m_ObjectHideFlags: 0

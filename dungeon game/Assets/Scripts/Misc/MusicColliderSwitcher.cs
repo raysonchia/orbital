@@ -5,14 +5,14 @@ using UnityEngine;
 public class MusicColliderSwitcher : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip audioClip;
+    private AudioClip audioClipEnter, audioClipExit;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerMovement player = collision.GetComponent<PlayerMovement>();
         if (player != null)
         {
-            MusicManager.Instance.ChangeMusic(audioClip);
+            MusicManager.Instance.ChangeMusic(audioClipEnter);
         }
     }
 
@@ -21,7 +21,8 @@ public class MusicColliderSwitcher : MonoBehaviour
         PlayerMovement player = collision.GetComponent<PlayerMovement>();
         if (player != null)
         {
-            MusicManager.Instance.SetPreviousMusic();
+            //MusicManager.Instance.SetPreviousMusic();
+            MusicManager.Instance.ChangeMusic(audioClipExit);
         }
     }
 }

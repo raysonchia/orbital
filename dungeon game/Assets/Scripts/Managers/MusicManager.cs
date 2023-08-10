@@ -27,7 +27,9 @@ public class MusicManager : Singleton<MusicManager>
 
     private IEnumerator TransitionRoutine(AudioClip newClip)
     {
-        float originalVolume = audioSource.volume;
+        // sometimes volume gets set lower than original when switching music during transition time?
+        //float originalVolume = audioSource.volume;
+        float originalVolume = 1f;
 
         for (var timePassed = 0f; timePassed < transitionTime; timePassed += Time.deltaTime)
         {
